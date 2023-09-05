@@ -1,5 +1,4 @@
 package com.example.myfirstcomposeapp.screens
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -98,6 +97,5 @@ fun EmployeeDetails(data:EmployeeList){
             )
     }
 }
-
 
 

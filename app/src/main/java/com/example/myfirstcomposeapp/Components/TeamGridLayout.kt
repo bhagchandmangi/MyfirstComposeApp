@@ -1,6 +1,6 @@
 package com.example.myfirstcomposeapp.Components
 
-import android.content.ClipData
+
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -19,23 +19,30 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.myfirstcomposeapp.Models.EmployeeList
 import com.example.myfirstcomposeapp.R
+import com.example.myfirstcomposeapp.screens.EmployeeDetails
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -46,7 +53,13 @@ fun TeamGridLayout(navController : NavController) {
     val dataFileString = getJsonDataFromAsset(context, "EmployeeDetailsList.json")
     val gson = Gson()
     val gridSampleType = object : TypeToken<List<EmployeeList>>(){}.type
-    val EmployeeData : List<EmployeeList> = gson.fromJson(dataFileString,gridSampleType)
+    val employeeData : List<EmployeeList> = gson.fromJson(dataFileString,gridSampleType)
+    Surface (
+        color = colorResource(id = R.color.bgcolor),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.bgcolor))
+            .padding(20.dp)) {
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
@@ -59,22 +72,18 @@ fun TeamGridLayout(navController : NavController) {
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "Employee List",
-                color = Color.White,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
+
             LazyVerticalGrid(columns = GridCells.Fixed(2),
                 modifier = Modifier.padding(top = 10.dp),
-                flingBehavior = ScrollableDefaults.flingBehavior() ,
-                userScrollEnabled= true,
                 ) {
-                items(EmployeeData) {data->
+                items(employeeData) {data->
                     EmployeeDataGridItem(data = data, navController = navController )
                 }
 
             }
         }
+    }
+    NavigatePage()
     }
 }
 
@@ -87,7 +96,8 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
         }
         .padding(10.dp)
         .fillMaxSize()
-        .shadow( elevation =  5.dp,
+        .shadow(
+            elevation = 5.dp,
             shape = RoundedCornerShape(5.dp)
         ),
     ) {
@@ -121,7 +131,7 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
                     .clip(RoundedCornerShape(5.dp)),
                 alignment = Alignment.Center
             )
-            Spacer(modifier = Modifier.padding(3.dp))
+            Spacer(modifier = Modifier.padding(5.dp))
             Text(
                 text = data.name,
                 modifier = Modifier
@@ -156,3 +166,47 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
 fun getJsonDataFromAsset(context: Context, data: String): String {
     return context.assets.open(data).bufferedReader().use { it.readText() }
 }
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun NavigatePage(){
+
+    val navHostController = rememberNavController()
+
+
+    NavHost(
+        navController = navHostController,
+        startDestination = "employee_data"
+    ){
+        composable("employee_data"){
+            TeamGridLayout(navController = navHostController)
+        }
+        composable("grid_detail/{item}",
+            arguments = listOf(
+                navArgument("item"){
+                    type = NavType.StringType
+                }
+            )
+        ){navBackStackEntry ->
+
+            navBackStackEntry?.arguments?.getString("item")?.let { json->
+                val item = Gson().fromJson(json,EmployeeList::class.java)
+                EmployeeDetails(data = item)
+
+            }
+        }
+    }
+
+
+
+}
+
+
+@OptIn(ExperimentalFoundationApi::class)
+@Preview(showBackground = true)
+@Composable
+fun TeamGridPreview() {
+    val navController = rememberNavController()
+    TeamGridLayout(navController = navController)
+}
+

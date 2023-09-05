@@ -17,12 +17,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myfirstcomposeapp.Components.GridView
 import com.example.myfirstcomposeapp.Components.SearchBar
+import com.example.myfirstcomposeapp.Components.TeamGridLayout
 import com.example.myfirstcomposeapp.Components.TeamHeaderPart
 import com.example.myfirstcomposeapp.R
 
 @Composable
 fun TeamScreen() {
-    Surface (color = colorResource(id = R.color.bgcolor),
+    Surface (
+        color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.bgcolor))
@@ -36,7 +38,8 @@ fun TeamScreen() {
             Spacer(modifier = Modifier.width(20.dp))
             SearchBar()
             Spacer(modifier = Modifier.width(20.dp))
-            GridView(context = LocalContext.current)
+            //TeamGridLayout(navController = )
+        // GridView(context = LocalContext.current)
         }
     }
 }

@@ -1,15 +1,14 @@
 package com.example.myfirstcomposeapp.Components
 
 import android.content.Context
-import android.widget.GridView
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -57,7 +56,9 @@ fun GridView(context: Context) {
                         Toast.LENGTH_SHORT
                     ).show()
                 },
-                modifier = Modifier.padding(8.dp).shadow(elevation = 6.dp),
+                modifier = Modifier.padding(8.dp)
+                    .shadow(elevation = 6.dp)
+                    .fillMaxWidth(),
             ) {
                 Column(
                     Modifier
@@ -70,8 +71,8 @@ fun GridView(context: Context) {
                         painter = painterResource(id = courseList[it].languageImg),
                         contentDescription = "Javascript",
                         modifier = Modifier
-                            .height(60.dp)
-                            .width(60.dp)
+                            .height(50.dp)
+                            .width(50.dp)
                             .padding(5.dp)
                     )
                     Spacer(modifier = Modifier.height(9.dp))

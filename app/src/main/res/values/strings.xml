@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MyfirstComposeApp</string>
+    <string name="hello">Hey There, </string>
+    <string name="CreateAccount">Create an Account </string>
+    <string name="WelcomeBack">Welcome Back </string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="hide_password">Hide Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="terms_Conditions">by Continuinng You Accept our Terms and Conditions and Privacy Policy</string>
+    <string name="terms_condiyiond_heading">Terms And Conditions</string>
+    <string name="or">or</string>
+    <string name="login">Already have an Account? Login</string>
+    <string name="btn_login">Login</string>
+    <string name="welcome">Welcome to Thiraa</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">user name</string>
+    <string name="terms_Conditons">By Signing Up You Agree to our Terms Conditions and Privacy Policy</string>
+</resources>

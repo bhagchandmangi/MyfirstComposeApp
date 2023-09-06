@@ -18,7 +18,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -67,95 +69,16 @@ fun TeamGridLayout(navController : NavController) {
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
-                //modifier = Modifier.padding(top = 10.dp),
-                flingBehavior = ScrollableDefaults.flingBehavior() ,
+                modifier = Modifier.padding(top = 10.dp),
                 userScrollEnabled= true,
                 ) {
                 items(employeeData) {data->
                     CustomTeamCard(data = data, navController = navController)
-                //EmployeeDataGridItem(data = data, navController = navController )
                 }
 
             }}
 }
 
-@Composable
-fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
-    Card(modifier = Modifier
-        .paint(
-            painterResource(
-                id = when (data.id) {
-                    1L -> R.drawable.person_1
-                    2L -> R.drawable.person_2
-                    3L -> R.drawable.person_3
-                    4L -> R.drawable.person_4
-                    5L -> R.drawable.person_5
-                    6L -> R.drawable.person_6
-                    7L -> R.drawable.person_1
-                    8L -> R.drawable.person_2
-                    9L -> R.drawable.person_3
-                    10L -> R.drawable.person_4
-                    11L -> R.drawable.person_5
-                    12L -> R.drawable.person_6
-                    13L -> R.drawable.person_1
-                    14L -> R.drawable.person_2
-                    15L -> R.drawable.person_3
-                    16L -> R.drawable.person_4
-                    17L -> R.drawable.person_5
-                    else -> R.drawable.person_6
-                }
-            ),
-            contentScale = ContentScale.FillBounds
-        )
-        .clickable {
-            val itemVal = Gson().toJson(data)
-            navController.navigate("grid_detail/$itemVal")
-        }
-
-        .shadow(elevation = 9.dp, spotColor = Color(0x00000000), ambientColor = Color(0x00000000))
-        .width(170.dp)
-        .height(190.dp)
-        .padding(10.dp)
-        .shadow(
-            elevation = 5.dp,
-            shape = RoundedCornerShape(5.dp)
-        ),
-    ) {
-
-
-        Column(modifier = Modifier.fillMaxWidth()
-            ) {
-            Row(modifier = Modifier
-                .background(colorResource(id = R.color.Primary)),
-                ) {
-
-            }
-            Text(
-                text = data.name,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally),
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-            Spacer(modifier = Modifier.padding(1.dp))
-            Text(
-                text = data.desc,
-                modifier = Modifier
-                    .padding(7.dp, 0.dp, 0.dp, 20.dp),
-                fontSize = 13.sp,
-                fontWeight = FontWeight.Normal,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-
-            )
-
-
-        }
-    }
-
-}
 
 fun getJsonDataFromAsset(context: Context, data: String): String {
     return context.assets.open(data).bufferedReader().use { it.readText() }

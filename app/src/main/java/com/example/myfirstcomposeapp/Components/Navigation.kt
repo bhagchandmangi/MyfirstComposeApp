@@ -8,6 +8,7 @@ import com.example.myfirstcomposeapp.NavigationItem
 import com.example.myfirstcomposeapp.NavigationItems
 import com.example.myfirstcomposeapp.screens.LoginScreen
 import com.example.myfirstcomposeapp.screens.MessageScreen
+import com.example.myfirstcomposeapp.screens.TeamScreen
 
 @Composable
 fun Navigation(navController: NavHostController) {

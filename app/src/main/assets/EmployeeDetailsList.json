@@ -1,92 +1,128 @@
 [
   {
     "id": 1,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "James John",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 2,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "Mary Patrical",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 3,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "Daniel John",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 4,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "Riddick",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 5,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "Jemmy Siel",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 6,
-    "name": "John James",
-    "desc": "Ryk"
+    "name": "Kine Mark",
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 7,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 8,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 9,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 10,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 11,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 12,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 13,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 14,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 15,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 16,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 17,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   },
   {
     "id": 18,
     "name": "John James",
-    "desc": "Ryk"
+    "desc": "Ryk",
+    "depart": "IT Department",
+    "status": "On duty"
   }
 ]

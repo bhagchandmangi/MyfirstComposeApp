@@ -26,8 +26,3 @@ fun MainNavigationScreen() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreview() {
-    MainNavigationScreen()
-}

@@ -36,7 +36,7 @@ fun MessageScreens() {
 }
 
 @Composable
-fun TeamScreen() {
+fun TeamScreens() {
     Column(
         modifier = Modifier
             .fillMaxSize()

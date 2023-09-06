@@ -11,13 +11,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.myfirstcomposeapp.Components.GridView
+import com.example.myfirstcomposeapp.Components.NavigatePage
 import com.example.myfirstcomposeapp.Components.SearchBar
-import com.example.myfirstcomposeapp.Components.TeamGridLayout
 import com.example.myfirstcomposeapp.Components.TeamHeaderPart
 import com.example.myfirstcomposeapp.R
 
@@ -38,7 +36,7 @@ fun TeamScreen() {
             Spacer(modifier = Modifier.width(20.dp))
             SearchBar()
             Spacer(modifier = Modifier.width(20.dp))
-            //TeamGridLayout(navController = )
+            NavigatePage()
         // GridView(context = LocalContext.current)
         }
     }

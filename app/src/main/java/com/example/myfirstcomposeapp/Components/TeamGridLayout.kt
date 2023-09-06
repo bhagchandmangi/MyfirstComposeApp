@@ -6,7 +6,6 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +18,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -54,12 +52,7 @@ fun TeamGridLayout(navController : NavController) {
     val gson = Gson()
     val gridSampleType = object : TypeToken<List<EmployeeList>>(){}.type
     val employeeData : List<EmployeeList> = gson.fromJson(dataFileString,gridSampleType)
-    Surface (
-        color = colorResource(id = R.color.bgcolor),
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
-            .padding(20.dp)) {
+
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
@@ -83,8 +76,6 @@ fun TeamGridLayout(navController : NavController) {
             }
         }
     }
-    NavigatePage()
-    }
 }
 
 @Composable
@@ -102,28 +93,29 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
         ),
     ) {
         Column(modifier = Modifier) {
-            Image(painter = painterResource(
-                id =  when(data.id){
-                    1L->R.drawable.person_1
-                    2L -> R.drawable.person_2
-                    3L -> R.drawable.person_3
-                    4L -> R.drawable.person_4
-                    5L -> R.drawable.person_5
-                    6L -> R.drawable.person_6
-                    7L -> R.drawable.person_1
-                    8L -> R.drawable.person_2
-                    9L -> R.drawable.person_3
-                    10L -> R.drawable.person_4
-                    11L -> R.drawable.person_5
-                    12L -> R.drawable.person_6
-                    13L -> R.drawable.person_1
-                    14L -> R.drawable.person_2
-                    15L -> R.drawable.person_3
-                    16L -> R.drawable.person_4
-                    17L -> R.drawable.person_5
-                    else -> R.drawable.person_6
-                }
-            ),
+            Image(
+                painter = painterResource(
+                    id = when (data.id) {
+                        1L -> R.drawable.person_1
+                        2L -> R.drawable.person_2
+                        3L -> R.drawable.person_3
+                        4L -> R.drawable.person_4
+                        5L -> R.drawable.person_5
+                        6L -> R.drawable.person_6
+                        7L -> R.drawable.person_1
+                        8L -> R.drawable.person_2
+                        9L -> R.drawable.person_3
+                        10L -> R.drawable.person_4
+                        11L -> R.drawable.person_5
+                        12L -> R.drawable.person_6
+                        13L -> R.drawable.person_1
+                        14L -> R.drawable.person_2
+                        15L -> R.drawable.person_3
+                        16L -> R.drawable.person_4
+                        17L -> R.drawable.person_5
+                        else -> R.drawable.person_6
+                    }
+                ),
                 contentDescription = "Grid Image",
                 modifier = Modifier
                     .fillMaxSize()
@@ -136,7 +128,7 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
                 text = data.name,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
-                fontSize =  15.sp,
+                fontSize = 15.sp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -145,9 +137,8 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
             Text(
                 text = data.desc,
                 modifier = Modifier
-                    .padding(7.dp,0.dp,0.dp,20.dp)
-                ,
-                fontSize =  13.sp,
+                    .padding(7.dp, 0.dp, 0.dp, 20.dp),
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Normal,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -156,11 +147,7 @@ fun EmployeeDataGridItem(data: EmployeeList, navController: NavController) {
 
 
         }
-
     }
-
-
-
 }
 
 fun getJsonDataFromAsset(context: Context, data: String): String {
@@ -189,7 +176,7 @@ fun NavigatePage(){
             )
         ){navBackStackEntry ->
 
-            navBackStackEntry?.arguments?.getString("item")?.let { json->
+            navBackStackEntry.arguments?.getString("item")?.let { json->
                 val item = Gson().fromJson(json,EmployeeList::class.java)
                 EmployeeDetails(data = item)
 

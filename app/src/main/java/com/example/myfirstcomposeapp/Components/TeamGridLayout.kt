@@ -6,6 +6,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -52,30 +53,23 @@ fun TeamGridLayout(navController : NavController) {
     val gson = Gson()
     val gridSampleType = object : TypeToken<List<EmployeeList>>(){}.type
     val employeeData : List<EmployeeList> = gson.fromJson(dataFileString,gridSampleType)
-
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-                .background(colorResource(id = R.color.white))
-                .padding(6.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Center
-        ) {
+        verticalArrangement = Arrangement.Center
+    ) {
 
-            LazyVerticalGrid(columns = GridCells.Fixed(2),
+
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
                 modifier = Modifier.padding(top = 10.dp),
+                flingBehavior = ScrollableDefaults.flingBehavior() ,
+                userScrollEnabled= true,
                 ) {
                 items(employeeData) {data->
                     EmployeeDataGridItem(data = data, navController = navController )
                 }
 
-            }
-        }
-    }
+            }}
 }
 
 @Composable

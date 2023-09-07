@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,15 +28,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myfirstcomposeapp.Models.EmployeeList
 import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 
 @Composable
-fun CustomProfileCard(modifier: Modifier = Modifier) {
+fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
+
 
     Box(
         modifier = modifier
@@ -54,64 +57,125 @@ fun CustomProfileCard(modifier: Modifier = Modifier) {
                 colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
                 modifier = Modifier
             ) {
-                Surface(
-                    Modifier
-                        .padding(top = 15.dp, bottom = 15.dp, start = 10.dp)
-                        .align(alignment = Alignment.Start)
-                        .width(116.dp)
-                        .height(152.dp)
-                        .shadow(elevation = 5.dp, RoundedCornerShape(5)), color = Color.Transparent
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
 
-                ) {
-                    Card(
-                        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
-                        modifier = Modifier
                     ) {
-                        Image(painter = painterResource(id = R.drawable.person_6),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight(),
-                            contentScale = ContentScale.FillHeight,
+                    Surface(
+                        Modifier
+                            .padding(top = 15.dp, bottom = 15.dp, start = 10.dp)
+                            .width(116.dp)
+                            .height(152.dp)
+                            .shadow(elevation = 5.dp, RoundedCornerShape(5)),
+                        color = Color.Transparent
 
-                        )
+                    ) {
+                        Card(
+                            colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
+                            modifier = Modifier
+                        ) {
+                            Image(
+                                painter = painterResource(
+                                    id = when (data.id) {
+                                        1L -> R.drawable.person_1
+                                        2L -> R.drawable.person_2
+                                        3L -> R.drawable.person_3
+                                        4L -> R.drawable.person_4
+                                        5L -> R.drawable.person_5
+                                        6L -> R.drawable.person_6
+                                        7L -> R.drawable.person_1
+                                        8L -> R.drawable.person_2
+                                        9L -> R.drawable.person_3
+                                        10L -> R.drawable.person_4
+                                        11L -> R.drawable.person_5
+                                        12L -> R.drawable.person_6
+                                        13L -> R.drawable.person_1
+                                        14L -> R.drawable.person_2
+                                        15L -> R.drawable.person_3
+                                        16L -> R.drawable.person_4
+                                        17L -> R.drawable.person_5
+                                        else -> R.drawable.person_6
+                                    }
+                                ),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .fillMaxHeight(),
+                                contentScale = ContentScale.FillHeight,
+
+                                )
+                        }
                     }
 
-                }
-                Column(modifier = Modifier,
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    ) {
-                    Text(
-                        text = "Mary Patrical",
-                        style = TextStyle(
-                            fontSize = 22.sp,
-                            fontFamily = Poppins,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFF3A3755),
-                            letterSpacing = 0.44.sp,
-                        ),
+                    Column {
+                        Text(
+                            text = data.name,
+                            style = TextStyle(
+                                fontSize = 22.sp,
+                                fontFamily = Poppins,
+                                fontWeight = FontWeight(400),
+                                color = Color(0xFF3A3755),
+                                letterSpacing = 0.44.sp,
+                            ),
+                            modifier = Modifier.padding(top = 30.dp, start = 30.dp),
+                        )
+                        Text(
+                            text = "IT Department",
+                            style = TextStyle(
+                                fontSize = 12.sp,
+                                fontFamily = Poppins,
+                                fontWeight = FontWeight(400),
+                                color = Color(0xFF3A3755),
+                                letterSpacing = 0.24.sp,
+                            ),
+                            modifier = Modifier.padding(start = 30.dp),
+                        )
+                        Surface(
+                            Modifier
+                                .padding(top = 40.dp)
+                                .width(50.dp)
+                                .height(20.dp),
+                            color = Color.Transparent,
+//                            shape = RoundedCornerShape()
+                        ) {
+                            Card(
+                                colors = CardDefaults.cardColors(
+                                    containerColor = colorResource(id = R.color.Primary)
+                                ),
 
-                    )
-                    Text(
-                        text = "Mary Patrical",
-                        style = TextStyle(
-                            fontSize = 22.sp,
-                            fontFamily = Poppins,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFF3A3755),
-                            letterSpacing = 0.44.sp,
-                        ),
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
+                                ) {
+                                Row(
+                                    horizontalArrangement = Arrangement.Center,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = "On Duty",
+                                        style = TextStyle(
+                                            fontSize = 8.sp,
+                                            fontFamily = Poppins,
+                                            fontWeight = FontWeight(500),
+                                            color = colorResource(id = R.color.white),
+                                            letterSpacing = 0.16.sp,
+                                        ),
+
+                                        )
+                                }
+
+                            }
+                        }
+                    }
                 }
+
+
             }
+
         }
         Surface(
             modifier = Modifier
                 .background(Color.Transparent)
                 .shadow(elevation = 5.dp, RoundedCornerShape(5))
-                .width(60.dp)
+                .width(55.dp)
                 .align(alignment = Alignment.CenterEnd)
                 .height(202.dp)
                 .padding(end = 0.dp), color = Color.Transparent
@@ -128,29 +192,36 @@ fun CustomProfileCard(modifier: Modifier = Modifier) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Icon(painter = painterResource(id = R.drawable.telephone_vector),
+                    Icon(
+                        painter = painterResource(id = R.drawable.telephone_vector),
                         contentDescription = "call vector",
                         modifier = Modifier
                             .width(20.dp)
                             .height(20.dp),
                         tint = colorResource(id = R.color.white)
                     )
-                    Divider(modifier = Modifier
-                        .fillMaxWidth(),
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth(),
                         color = colorResource(id = R.color.naviconcolor),
-                        thickness = 1.dp)
-                    Icon(painter = painterResource(id = R.drawable.mail_vetor),
+                        thickness = 1.dp
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.mail_vetor),
                         contentDescription = "call vector",
                         modifier = Modifier
                             .width(20.dp)
                             .height(20.dp),
                         tint = colorResource(id = R.color.white)
                     )
-                    Divider(modifier = Modifier
-                        .fillMaxWidth(),
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth(),
                         color = colorResource(id = R.color.naviconcolor),
-                        thickness = 1.dp)
-                    Icon(painter = painterResource(id = R.drawable.video_camera_vector),
+                        thickness = 1.dp
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.video_camera_vector),
                         contentDescription = "call vector",
                         modifier = Modifier
                             .width(20.dp)
@@ -165,8 +236,9 @@ fun CustomProfileCard(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun CustomProfileCardPreview() {
-    CustomProfileCard()
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun CustomProfileCardPreview() {
+//    data: EmployeeList
+//    CustomProfileCard(data = data)
+//}

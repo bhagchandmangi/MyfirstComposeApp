@@ -39,19 +39,29 @@ fun BottomNavigationBar(navController: NavController) {
         val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             BottomNavigationItem(
-                icon = { Icon(painterResource(id = item.icon),
-                         contentDescription = item.title,
-                    modifier = Modifier.size(20.dp),
+                icon = {
+                    Icon(
+                        painterResource(id = item.icon),
+                        contentDescription = item.title,
+                        modifier = Modifier.size(20.dp),
 
-                    tint =
-                    if (currentRoute == item.route) colorResource(id = R.color.red)
-                    else colorResource(id = R.color.naviconcolor)) },
-                label = { Text(text = item.title,
-                    style = TextStyle(fontFamily = Poppins,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 10.sp),
-                    color = if (currentRoute == item.route) colorResource(id = R.color.red)
-                else colorResource(id = R.color.naviconcolor)) },
+                        tint =
+                        if (currentRoute == item.route) colorResource(id = R.color.red)
+                        else colorResource(id = R.color.naviconcolor)
+                    )
+                },
+                label = {
+                    Text(
+                        text = item.title,
+                        style = TextStyle(
+                            fontFamily = Poppins,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp
+                        ),
+                        color = if (currentRoute == item.route) colorResource(id = R.color.red)
+                        else colorResource(id = R.color.naviconcolor)
+                    )
+                },
 
                 alwaysShowLabel = false,
                 selected = currentRoute == item.route,
@@ -70,7 +80,7 @@ fun BottomNavigationBar(navController: NavController) {
                         launchSingleTop = true
                         // Restore state when reselecting a previously selected item
                         restoreState = true
-                }
+                    }
                 }
             )
         }

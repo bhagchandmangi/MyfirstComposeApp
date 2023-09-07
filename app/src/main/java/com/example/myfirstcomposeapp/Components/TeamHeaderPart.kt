@@ -26,19 +26,24 @@ import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 @Composable
 fun TeamHeaderPart() {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .heightIn(56.dp),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(56.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,) {
+        horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
 
         Column {
-            Row(modifier = Modifier.padding(0.dp),
+            Row(
+                modifier = Modifier.padding(0.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
 
 
-                Icon(painter = painterResource(id = R.drawable.team),
+                Icon(
+                    painter = painterResource(id = R.drawable.team),
                     contentDescription = "Team",
                     modifier = Modifier
                         .size(17.dp)
@@ -46,7 +51,8 @@ fun TeamHeaderPart() {
                     tint = colorResource(id = R.color.red)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
-                Text(text = "Team",
+                Text(
+                    text = "Team",
                     style = TextStyle(
                         fontFamily = Poppins,
                         fontWeight = FontWeight.Bold,
@@ -57,17 +63,21 @@ fun TeamHeaderPart() {
             }
         }
         Column {
-            Row(modifier = Modifier.padding(end = 40.dp),
+            Row(
+                modifier = Modifier.padding(end = 40.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
                 Spacer(modifier = Modifier.width(10.dp))
-                Icon(painter = painterResource(id = R.drawable.bell),
+                Icon(
+                    painter = painterResource(id = R.drawable.bell),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
-                Icon(painter = painterResource(id = R.drawable.group),
+                Icon(
+                    painter = painterResource(id = R.drawable.group),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)

@@ -43,6 +43,7 @@ fun CountryList(navController: NavController, state: MutableState<TextFieldValue
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun CountryListPreview() {

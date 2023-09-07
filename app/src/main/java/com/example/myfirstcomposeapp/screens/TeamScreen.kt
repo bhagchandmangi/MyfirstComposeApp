@@ -21,12 +21,13 @@ import com.example.myfirstcomposeapp.R
 
 @Composable
 fun TeamScreen() {
-    Surface (
+    Surface(
         color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.bgcolor))
-            .padding(20.dp)) {
+            .padding(20.dp)
+    ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -37,7 +38,7 @@ fun TeamScreen() {
             SearchBar()
             Spacer(modifier = Modifier.width(20.dp))
             NavigatePage()
-        // GridView(context = LocalContext.current)
+            // GridView(context = LocalContext.current)
         }
     }
 }

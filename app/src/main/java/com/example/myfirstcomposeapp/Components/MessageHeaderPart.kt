@@ -30,53 +30,65 @@ import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 fun MessageHeaderPart() {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .heightIn(56.dp),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(56.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,) {
+        horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
 
         Column {
-            Row(modifier = Modifier.padding(0.dp),
+            Row(
+                modifier = Modifier.padding(0.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
 
 
-            Icon(painter = painterResource(id = R.drawable.message),
-                contentDescription = "Message",
-                modifier = Modifier
-                    .size(17.dp)
-                    .padding(end = 0.dp),
-                tint = colorResource(id = R.color.red)
-            )
+                Icon(
+                    painter = painterResource(id = R.drawable.message),
+                    contentDescription = "Message",
+                    modifier = Modifier
+                        .size(17.dp)
+                        .padding(end = 0.dp),
+                    tint = colorResource(id = R.color.red)
+                )
                 Spacer(modifier = Modifier.width(10.dp))
-            Text(text = "Message",
-                style = TextStyle(
-                    fontFamily = Poppins,
-                    fontWeight = FontWeight.Bold,
-                    color = colorResource(id = R.color.Primary),
-                    fontSize = 22.sp
-                ),
-            )}
+                Text(
+                    text = "Message",
+                    style = TextStyle(
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(id = R.color.Primary),
+                        fontSize = 22.sp
+                    ),
+                )
+            }
         }
         Column {
-            Row(modifier = Modifier.padding(0.dp),
+            Row(
+                modifier = Modifier.padding(0.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
-                Icon(painter = painterResource(id = R.drawable.carbon_add_filled),
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.carbon_add_filled),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
 
                     tint = colorResource(id = R.color.naviconcolor)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
-                Icon(painter = painterResource(id = R.drawable.bell),
+                Icon(
+                    painter = painterResource(id = R.drawable.bell),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
-                Icon(painter = painterResource(id = R.drawable.group),
+                Icon(
+                    painter = painterResource(id = R.drawable.group),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)
@@ -85,7 +97,7 @@ fun MessageHeaderPart() {
 
         }
 
-        }
+    }
 
 }
 

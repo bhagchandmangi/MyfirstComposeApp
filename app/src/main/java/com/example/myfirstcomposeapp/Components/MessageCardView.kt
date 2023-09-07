@@ -59,7 +59,7 @@ fun MessageCardView() {
                 ) {
                     Text(
                         text = "New release",
-                        fontSize =  12.sp,
+                        fontSize = 12.sp,
                         style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
                     )
@@ -69,7 +69,7 @@ fun MessageCardView() {
 
                 Text(
                     text = "Gift Plant",
-                    fontSize =  24.sp,
+                    fontSize = 24.sp,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -83,7 +83,7 @@ fun MessageCardView() {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = "4.0",
-                        fontSize =  14.sp,
+                        fontSize = 14.sp,
                         fontWeight = FontWeight.SemiBold,
                         style = MaterialTheme.typography.titleLarge
                     )
@@ -103,7 +103,7 @@ fun MessageCardView() {
                 ) {
                     Text(
                         text = "Read More",
-                        fontSize =  11.sp,
+                        fontSize = 11.sp,
                         fontWeight = FontWeight.SemiBold,
                         style = MaterialTheme.typography.titleLarge
                     )

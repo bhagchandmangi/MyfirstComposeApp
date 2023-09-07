@@ -52,12 +52,12 @@ import com.google.gson.reflect.TypeToken
 
 @ExperimentalFoundationApi
 @Composable
-fun TeamGridLayout(navController : NavController) {
+fun TeamGridLayout(navController: NavController) {
     val context = LocalContext.current
     val dataFileString = getJsonDataFromAsset(context, "EmployeeDetailsList.json")
     val gson = Gson()
-    val gridSampleType = object : TypeToken<List<EmployeeList>>(){}.type
-    val employeeData : List<EmployeeList> = gson.fromJson(dataFileString,gridSampleType)
+    val gridSampleType = object : TypeToken<List<EmployeeList>>() {}.type
+    val employeeData: List<EmployeeList> = gson.fromJson(dataFileString, gridSampleType)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -67,16 +67,17 @@ fun TeamGridLayout(navController : NavController) {
     ) {
 
 
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.padding(top = 10.dp),
-                userScrollEnabled= true,
-                ) {
-                items(employeeData) {data->
-                    CustomTeamCard(data = data, navController = navController)
-                }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier.padding(top = 10.dp),
+            userScrollEnabled = true,
+        ) {
+            items(employeeData) { data ->
+                CustomTeamCard(data = data, navController = navController)
+            }
 
-            }}
+        }
+    }
 }
 
 
@@ -86,7 +87,7 @@ fun getJsonDataFromAsset(context: Context, data: String): String {
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun NavigatePage(){
+fun NavigatePage() {
 
     val navHostController = rememberNavController()
 
@@ -94,26 +95,25 @@ fun NavigatePage(){
     NavHost(
         navController = navHostController,
         startDestination = "employee_data"
-    ){
-        composable("employee_data"){
+    ) {
+        composable("employee_data") {
             TeamGridLayout(navController = navHostController)
         }
         composable("grid_detail/{item}",
             arguments = listOf(
-                navArgument("item"){
+                navArgument("item") {
                     type = NavType.StringType
                 }
             )
-        ){navBackStackEntry ->
+        ) { navBackStackEntry ->
 
-            navBackStackEntry.arguments?.getString("item")?.let { json->
-                val item = Gson().fromJson(json,EmployeeList::class.java)
+            navBackStackEntry.arguments?.getString("item")?.let { json ->
+                val item = Gson().fromJson(json, EmployeeList::class.java)
                 EmployeeDetails(data = item)
 
             }
         }
     }
-
 
 
 }

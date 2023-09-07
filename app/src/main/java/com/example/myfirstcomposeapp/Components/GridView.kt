@@ -43,8 +43,8 @@ fun GridView(context: Context) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         modifier = Modifier.padding(top = 10.dp),
-        flingBehavior = ScrollableDefaults.flingBehavior() ,
-        userScrollEnabled= true,
+        flingBehavior = ScrollableDefaults.flingBehavior(),
+        userScrollEnabled = true,
     ) {
 
         items(courseList.size) {
@@ -56,7 +56,8 @@ fun GridView(context: Context) {
                         Toast.LENGTH_SHORT
                     ).show()
                 },
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .padding(8.dp)
                     .shadow(elevation = 6.dp)
                     .fillMaxWidth(),
             ) {

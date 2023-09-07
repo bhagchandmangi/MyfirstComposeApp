@@ -44,10 +44,12 @@ import com.example.myfirstcomposeapp.ui.theme.Poppins
 @Composable
 fun MessageCardviewComponent() {
 
-    Surface(modifier = Modifier.shadow(
-        elevation = 5.dp,
-        shape = RoundedCornerShape(10.dp)
-    )) {
+    Surface(
+        modifier = Modifier.shadow(
+            elevation = 5.dp,
+            shape = RoundedCornerShape(10.dp)
+        )
+    ) {
         Card(
             modifier = Modifier
                 .background(colorResource(id = R.color.white))
@@ -128,9 +130,11 @@ fun ProfileContentComposable() {
         verticalArrangement = Arrangement.aligned(Alignment.CenterVertically)
     ) {
 
-        Text(text ="Catalin John",
+        Text(
+            text = "Catalin John",
             fontWeight = FontWeight.Bold,
-            style = TextStyle(fontFamily = Poppins,
+            style = TextStyle(
+                fontFamily = Poppins,
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp
             )

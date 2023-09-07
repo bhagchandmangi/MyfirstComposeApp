@@ -12,20 +12,20 @@ import com.example.myfirstcomposeapp.screens.TeamScreen
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = NavigationItem.Message.route){
-        composable(NavigationItem.Message.route){
+    NavHost(navController = navController, startDestination = NavigationItem.Message.route) {
+        composable(NavigationItem.Message.route) {
             MessageScreen()
         }
-        composable(NavigationItem.Team.route){
+        composable(NavigationItem.Team.route) {
             TeamScreen()
         }
-        composable(NavigationItem.Project.route){
+        composable(NavigationItem.Project.route) {
             ProjectScreen()
         }
-        composable(NavigationItem.Sales.route){
+        composable(NavigationItem.Sales.route) {
             SalesScreen()
         }
-        composable(NavigationItem.MyPage.route){
+        composable(NavigationItem.MyPage.route) {
             ProfileScreen()
         }
         composable(NavigationItems.MainNavigationScreen.route) {

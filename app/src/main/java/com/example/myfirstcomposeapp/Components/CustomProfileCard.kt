@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -134,7 +135,10 @@ fun CustomProfileCard(modifier: Modifier = Modifier) {
                             .height(20.dp),
                         tint = colorResource(id = R.color.white)
                     )
-
+                    Divider(modifier = Modifier
+                        .fillMaxWidth(),
+                        color = colorResource(id = R.color.naviconcolor),
+                        thickness = 1.dp)
                     Icon(painter = painterResource(id = R.drawable.mail_vetor),
                         contentDescription = "call vector",
                         modifier = Modifier
@@ -142,6 +146,10 @@ fun CustomProfileCard(modifier: Modifier = Modifier) {
                             .height(20.dp),
                         tint = colorResource(id = R.color.white)
                     )
+                    Divider(modifier = Modifier
+                        .fillMaxWidth(),
+                        color = colorResource(id = R.color.naviconcolor),
+                        thickness = 1.dp)
                     Icon(painter = painterResource(id = R.drawable.video_camera_vector),
                         contentDescription = "call vector",
                         modifier = Modifier

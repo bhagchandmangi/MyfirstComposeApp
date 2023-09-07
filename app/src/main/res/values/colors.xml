@@ -12,4 +12,5 @@
     <color name="gray">#808080</color>
     <color name="naviconcolor">#3A3755</color>
     <color name="textColor">#8B8989</color>
+    <color name="dividercolor">#3A37559E</color>
 </resources>

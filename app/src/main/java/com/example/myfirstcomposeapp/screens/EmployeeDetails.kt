@@ -1,4 +1,5 @@
 package com.example.myfirstcomposeapp.screens
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,31 +24,30 @@ import com.example.myfirstcomposeapp.Models.EmployeeList
 import com.example.myfirstcomposeapp.R
 
 @Composable
-fun EmployeeDetails(data:EmployeeList){
+fun EmployeeDetails(data: EmployeeList) {
 
-    Column(modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Column(modifier = Modifier
+
+    Column(
+        modifier = Modifier
             .fillMaxWidth()
             .height(50.dp)
             .background(color = colorResource(id = R.color.white)),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text(
-                text ="Fruits Calories and Sugar",
-                color = Color.White,
-                fontSize =  20.sp,
-                fontWeight = FontWeight.Bold
-            )
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Fruits Calories and Sugar",
+            color = Color.White,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
 
-        }
-        Spacer(modifier = Modifier.padding(1.dp))
-        Image(painter = painterResource(
-            id =  when(data.id){
-                1L-> R.drawable.person_1
+    }
+    Spacer(modifier = Modifier.padding(1.dp))
+    Image(
+        painter = painterResource(
+            id = when (data.id) {
+                1L -> R.drawable.person_1
                 2L -> R.drawable.person_2
                 3L -> R.drawable.person_3
                 4L -> R.drawable.person_4
@@ -67,35 +67,32 @@ fun EmployeeDetails(data:EmployeeList){
                 else -> R.drawable.person_6
             }
         ),
-            contentDescription = "Grid Image",
-            modifier = Modifier
-                .clip(RoundedCornerShape(10.dp)),
-            alignment = Alignment.Center
+        contentDescription = "Grid Image",
+        modifier = Modifier
+            .clip(RoundedCornerShape(10.dp)),
+        alignment = Alignment.Center
+    )
+    Spacer(modifier = Modifier.padding(10.dp))
+    Text(
+        text = data.name,
+        modifier = Modifier,
+        color = Color.Black,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold
+    )
+
+    Spacer(modifier = Modifier.padding(1.dp))
+
+    Text(
+        text = data.desc,
+        modifier = Modifier
+            .padding(6.dp),
+        color = Color.Black,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Normal,
+
+
         )
-        Spacer(modifier = Modifier.padding(10.dp))
-        Text(
-            text = data.name,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            color = Color.Black,
-            fontSize =  20.sp,
-            fontWeight = FontWeight.Bold
-        )
-
-        Spacer(modifier = Modifier.padding(1.dp))
-
-        Text(
-            text = data.desc,
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(6.dp),
-            color = Color.Black,
-            fontSize =  16.sp,
-            fontWeight = FontWeight.Normal,
-
-
-            )
-    }
 }
 
 

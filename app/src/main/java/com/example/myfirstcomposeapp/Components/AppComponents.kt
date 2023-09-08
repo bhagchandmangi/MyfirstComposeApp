@@ -1,15 +1,18 @@
 package com.example.myfirstcomposeapp.Components
 
 import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
@@ -106,14 +109,12 @@ fun MyTextField(labelValue: String) {
         modifier = Modifier
             .padding(5.dp)
             .shadow(
-                elevation = 5.dp,
-                shape = RoundedCornerShape(10.dp)
+                elevation = 5.dp, shape = RoundedCornerShape(10.dp)
 
             )
     ) {
         TextField(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             value = textValue,
             label = { Text(text = labelValue) },
             colors = TextFieldDefaults.textFieldColors(
@@ -132,8 +133,7 @@ fun MyTextField(labelValue: String) {
                      contentDescription = "",
                      modifier = Modifier.size(25.dp))
              },*/
-            onValueChange =
-            {
+            onValueChange = {
                 textValue = it
             },
         )
@@ -155,14 +155,12 @@ fun PasswordTextField(labelValue: String) {
         modifier = Modifier
             .padding(5.dp)
             .shadow(
-                elevation = 5.dp,
-                shape = RoundedCornerShape(10.dp)
+                elevation = 5.dp, shape = RoundedCornerShape(10.dp)
 
             )
     ) {
         TextField(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             value = password,
             label = { Text(text = labelValue) },
             colors = TextFieldDefaults.textFieldColors(
@@ -177,8 +175,7 @@ fun PasswordTextField(labelValue: String) {
             ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             shape = RoundedCornerShape(5.dp),
-            onValueChange =
-            {
+            onValueChange = {
                 password = it
             },
             /* leadingIcon = {
@@ -254,8 +251,7 @@ fun ClickableTextComponent() {
             annotatedString.getStringAnnotations(offset, offset).firstOrNull()?.also { span ->
                 Log.d("ClickableTextComponent", "{${span.item}}")
             }
-        },
-        modifier = Modifier.padding(20.dp)
+        }, modifier = Modifier.padding(20.dp)
     )
 }
 
@@ -263,8 +259,7 @@ fun ClickableTextComponent() {
 @Composable
 fun DividerTextComponent() {
     Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
     ) {
         Divider(
             modifier = Modifier
@@ -353,26 +348,22 @@ fun ClickableThiraaTextComponent() {
 fun ShadowedTextField() {
     var text by remember { mutableStateOf("") }
 
-    Box(
-        modifier = Modifier.run {
-            padding(16.dp)
-                .shadow(
-                    elevation = 4.dp,
-                    shape = RectangleShape,
+    Box(modifier = Modifier.run {
+        padding(16.dp)
+            .shadow(
+                elevation = 4.dp,
+                shape = RectangleShape,
 
-                    )
-                .offset(2.dp, 3.dp)
-                .alpha(.5f)
-        }
-    ) {
-        TextField(
-            value = text,
+                )
+            .offset(2.dp, 3.dp)
+            .alpha(.5f)
+    }) {
+        TextField(value = text,
             onValueChange = { text = it },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            label = { Text("Enter text") }
-        )
+            label = { Text("Enter text") })
     }
 }
 
@@ -390,8 +381,7 @@ fun TopBar() {
                     fontFamily = Poppins,
                 ),
             )
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
+        }, colors = TopAppBarDefaults.smallTopAppBarColors(
             containerColor = colorResource(id = R.color.bgcolor),
             titleContentColor = colorResource(id = R.color.Primary)
         )
@@ -406,18 +396,12 @@ fun Rowcomponent() {
             .fillMaxWidth()
             .height(50.dp),
         verticalAlignment = Alignment.CenterVertically,
-
-        ) {
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize(.5f)
-                .height(50.dp)
         ) {
             OutlinedButton(
                 onClick = { /* Handle button click here */ },
-                modifier = Modifier
-                    .width(30.dp)
-                    .height(20.dp),
                 colors = ButtonDefaults.outlinedButtonColors(
                     containerColor = colorResource(id = R.color.Primary),
                     contentColor = colorResource(id = R.color.white)
@@ -425,8 +409,7 @@ fun Rowcomponent() {
             ) {
                 // Button text
                 Text(
-                    text = "Task in Progress",
-                    style = TextStyle(
+                    text = "Task in Progress", style = TextStyle(
                         fontSize = 10.sp,
                         fontFamily = Poppins,
                         fontWeight = FontWeight(400),
@@ -436,71 +419,162 @@ fun Rowcomponent() {
                 )
             }
         }
+
         Column(
-            modifier = Modifier
-                .fillMaxSize(.5f)
-                .height(50.dp)
         ) {
+
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row {
 
-                ) {
-                OutlinedButton(
-                    onClick = { /* Handle button click here */ },
-                    modifier = Modifier
-                        .width(30.dp)
-                        .height(20.dp),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = colorResource(id = R.color.Primary),
-                        contentColor = colorResource(id = R.color.white)
-                    )
-                ) {
-                    // Button text
-                    Text(
-                        text = "Task in Progress",
-                        style = TextStyle(
-                            fontSize = 10.sp,
-                            fontFamily = Poppins,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFFFFFFFF),
-                            letterSpacing = 0.2.sp,
-                        )
-                    )
-                }
-                OutlinedButton(
-                    onClick = { /* Handle button click here */ },
-                    modifier = Modifier
-                        .width(30.dp)
-                        .height(20.dp),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = colorResource(id = R.color.Primary),
-                        contentColor = colorResource(id = R.color.white)
-                    )
-                ) {
-                    // Button text
-                    Text(
-                        text = "Task in Progress",
-                        style = TextStyle(
-                            fontSize = 10.sp,
-                            fontFamily = Poppins,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFFFFFFFF),
-                            letterSpacing = 0.2.sp,
-                        )
-                    )
-                }
-                Icon(painter = painterResource(
-                    id = R.drawable.hamburger),
-                    contentDescription =null,
 
-                )
+                    OutlinedButton(
+                        onClick = { /* Handle button click here */ },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = colorResource(id = R.color.Primary),
+                            contentColor = colorResource(id = R.color.white)
+                        )
+                    ) {
+                        // Button text
+                        Text(
+                            text = "Task in Progress", style = TextStyle(
+                                fontSize = 10.sp,
+                                fontFamily = Poppins,
+                                fontWeight = FontWeight(400),
+                                color = Color(0xFFFFFFFF),
+                                letterSpacing = 0.2.sp,
+                            )
+                        )
+                    }
+                    OutlinedButton(
+                        onClick = { /* Handle button click here */ },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = colorResource(id = R.color.Primary),
+                            contentColor = colorResource(id = R.color.white)
+                        )
+                    ) {
+                        // Button text
+                        Text(
+                            text = "Task in Progress", style = TextStyle(
+                                fontSize = 10.sp,
+                                fontFamily = Poppins,
+                                fontWeight = FontWeight(400),
+                                color = Color(0xFFFFFFFF),
+                                letterSpacing = 0.2.sp,
+                            )
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(20.dp))
+                Icon(
+                    painter = painterResource(
+                        id = R.drawable.hamburger
+                    ),
+                    contentDescription = null,
+
+                    )
             }
         }
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
+//@Composable
+//fun RowcomponentPreview() {
+//    Rowcomponent()
+//}
+
 @Composable
-fun RowcomponentPreview() {
-    Rowcomponent()
+fun CustomRow() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(colorResource(id = R.color.bgcolor)),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.padding(start = 5.dp))
+        {
+            CustomButton(
+                text = "Task in Progress",
+                colorResource(id = R.color.Primary),
+                contentColor = colorResource(R.color.white)
+            )
+
+        }
+
+        Spacer(modifier = Modifier.width(24.dp)) // Add two times more space between the first component and others
+
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                com.example.myfirstcomposeapp.screens.CustomButton(
+                    text = "Assigned",
+                    backgroundColor = colorResource(id = R.color.Primary),
+                    contentColor = colorResource(R.color.Primary)
+                )
+
+                Spacer(modifier = Modifier.width(8.dp)) // Add spacing between buttons
+
+                com.example.myfirstcomposeapp.screens.CustomButton(
+                    text = "Created",
+                    backgroundColor = colorResource(id = R.color.Primary),
+                    contentColor = colorResource(R.color.white)
+                )
+
+                Spacer(modifier = Modifier.width(8.dp)) // Add spacing between buttons
+
+                // Third Column with hamburger icon
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.pepicons_pop_menu),
+                        contentDescription = null,
+                        tint = Color.Black,
+                        modifier = Modifier.size(50.dp)
+                    )
+                }
+            }
+        }
+    }
 }
+@Composable
+fun CustomButton(text: String, backgroundColor: Color, contentColor: Color, ) {
+    androidx.compose.material3.Button(
+        onClick = { /* Handle button click here */ },
+        colors = ButtonDefaults.buttonColors(
+            containerColor = backgroundColor,
+            contentColor = contentColor
+        ), shape = RoundedCornerShape(5.dp),
+        modifier = Modifier.shadow(elevation = 5.dp)
+
+    ) {
+        Text(
+            text = text,
+            style = TextStyle(
+                fontSize = 10.sp,
+                fontFamily = Poppins,
+                fontWeight = FontWeight(400),
+                color = Color(0xFFFFFFFF),
+                letterSpacing = 0.2.sp,
+            )
+        )
+    }
+}
+
+
+@Preview
+@Composable
+fun CustomRowPreview() {
+    CustomRow()
+}
+
+
+
+
+
+

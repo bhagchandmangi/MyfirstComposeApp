@@ -136,14 +136,14 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
                                 .width(50.dp)
                                 .height(20.dp),
                             color = Color.Transparent,
-//                            shape = RoundedCornerShape()
+                            shape = RoundedCornerShape(topEnd = 5.dp, bottomEnd = 5.dp)
                         ) {
                             Card(
                                 colors = CardDefaults.cardColors(
                                     containerColor = colorResource(id = R.color.Primary)
                                 ),
-
-                                ) {
+                                shape = RoundedCornerShape(topEnd = 5.dp, bottomEnd = 5.dp)
+                            ) {
                                 Row(
                                     horizontalArrangement = Arrangement.Center,
                                     verticalAlignment = Alignment.CenterVertically

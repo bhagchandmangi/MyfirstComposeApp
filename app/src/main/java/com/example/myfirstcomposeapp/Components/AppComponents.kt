@@ -551,6 +551,7 @@ fun CustomButton(text: String, backgroundColor: Color, contentColor: Color, ) {
             contentColor = contentColor
         ), shape = RoundedCornerShape(5.dp),
         modifier = Modifier.shadow(elevation = 5.dp)
+            .padding(0.dp)
 
     ) {
         Text(
@@ -561,7 +562,8 @@ fun CustomButton(text: String, backgroundColor: Color, contentColor: Color, ) {
                 fontWeight = FontWeight(400),
                 color = Color(0xFFFFFFFF),
                 letterSpacing = 0.2.sp,
-            )
+            ),
+            modifier = Modifier.padding(0.dp)
         )
     }
 }

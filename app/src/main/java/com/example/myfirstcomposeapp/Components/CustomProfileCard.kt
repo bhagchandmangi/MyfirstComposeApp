@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -46,7 +47,6 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
     ) {
         Surface(
             Modifier
-                .padding(0.dp)
                 .align(alignment = Alignment.CenterEnd)
                 .fillMaxWidth()
                 .height(172.dp)
@@ -148,6 +148,11 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
                                     horizontalArrangement = Arrangement.Center,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxSize(),
+                                        contentAlignment = Alignment.Center // Center the content in the Card
+                                    ) {
                                     Text(
                                         textAlign = TextAlign.Center,
                                         text = "On Duty",
@@ -159,7 +164,7 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
                                             letterSpacing = 0.16.sp,
                                         ),
 
-                                        )
+                                        )}
                                 }
 
                             }

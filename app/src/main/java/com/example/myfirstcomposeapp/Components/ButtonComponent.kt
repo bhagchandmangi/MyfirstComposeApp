@@ -19,13 +19,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
 import com.example.myfirstcomposeapp.R
+import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 @Composable
-fun ButtonComponent(label: String, route: String) {
-    val navController = rememberNavController()
-    Button(onClick = { navController.navigate(route) },
+fun ButtonComponent(label: String, route: String, navHostController: NavHostController) {
+
+    Button(
+        onClick = { navHostController.navigate(route) },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),
@@ -33,28 +35,32 @@ fun ButtonComponent(label: String, route: String) {
         colors = ButtonDefaults.buttonColors(Color.Transparent),
         shape = RoundedCornerShape(10.dp),
     ) {
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .heightIn(48.dp)
-            .background(
-                brush = Brush.horizontalGradient(
-                    listOf(
-                        colorResource(id = R.color.Primary),
-                        colorResource(id = R.color.Primary)
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(48.dp)
+                .background(
+                    brush = Brush.horizontalGradient(
+                        listOf(
+                            colorResource(id = R.color.Primary),
+                            colorResource(id = R.color.Primary)
+                        ),
                     ),
-                ),
-                shape = RoundedCornerShape(10.dp),
+                    shape = RoundedCornerShape(10.dp),
 
-                ),
+                    ),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             Text(
                 text = label,
                 style = TextStyle(
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,),
-
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight(500),
+                    color = Color(0xFFFFFFFF),
+                    letterSpacing = 0.36.sp,
                 )
+            )
         }
     }
 }

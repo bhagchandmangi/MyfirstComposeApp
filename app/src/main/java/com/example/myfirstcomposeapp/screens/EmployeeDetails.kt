@@ -111,7 +111,7 @@ fun EmployeeDetails(data: EmployeeList) {
 
         }
         Spacer(modifier = Modifier.height(10.dp))
-        TaskListView()
+        TaskListView(data = data)
     }
 
 }

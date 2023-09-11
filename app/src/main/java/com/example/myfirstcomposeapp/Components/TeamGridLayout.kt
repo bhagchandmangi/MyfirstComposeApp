@@ -45,8 +45,6 @@ fun TeamGridLayout(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
-
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             modifier = Modifier.padding(top = 10.dp),
@@ -55,7 +53,6 @@ fun TeamGridLayout(navController: NavController) {
             items(employeeData) { data ->
                 CustomTeamCard(data = data, navController = navController)
             }
-
         }
     }
 }

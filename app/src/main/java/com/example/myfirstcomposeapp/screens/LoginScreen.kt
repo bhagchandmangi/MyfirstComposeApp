@@ -2,41 +2,33 @@ package com.example.myfirstcomposeapp.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
 import com.example.myfirstcomposeapp.Components.ButtonComponent
 import com.example.myfirstcomposeapp.Components.ClickableTextComponent
 import com.example.myfirstcomposeapp.Components.ClickableThiraaTextComponent
 import com.example.myfirstcomposeapp.Components.HeadingTextComponent
 import com.example.myfirstcomposeapp.Components.MyTextField
-import com.example.myfirstcomposeapp.Components.Navigation
 import com.example.myfirstcomposeapp.Components.PasswordTextField
-import com.example.myfirstcomposeapp.Components.ShadowedTextField
 import com.example.myfirstcomposeapp.NavigationItems
 import com.example.myfirstcomposeapp.R
 
 @Composable
-fun LoginScreen() {
-    val navController = rememberNavController()
+fun LoginScreen(navController: NavHostController) {
+
     Surface (color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
@@ -66,10 +58,7 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(0.dp))
             ClickableTextComponent()
             Spacer(modifier = Modifier.height(80.dp))
-            ButtonComponent(label = stringResource(id = R.string.btn_login),  route = NavigationItems.MainNavigationScreen.route)
-            Box(modifier = Modifier.padding()) {
-                Navigation(navController = navController)
-            }
+            ButtonComponent(label = stringResource(id = R.string.btn_login),  route = NavigationItems.MainNavigationScreen.route, navHostController = navController)
 
         }
     }

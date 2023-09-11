@@ -11,4 +11,5 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
 sealed class NavigationItems(var route: String) {
     object MainNavigationScreen : NavigationItems("mainNavigationScreen")
     object LoginScreen : NavigationItems("login")
+    object EmployeeDetails : NavigationItems("employee_details")
 }

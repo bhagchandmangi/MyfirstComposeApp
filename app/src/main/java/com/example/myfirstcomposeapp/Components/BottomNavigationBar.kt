@@ -15,7 +15,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.myfirstcomposeapp.NavigationItem
 import com.example.myfirstcomposeapp.R
@@ -23,7 +23,7 @@ import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 
 @Composable
-fun BottomNavigationBar(navController: NavController) {
+fun BottomNavigationBar(navController: NavHostController) {
     val items = listOf(
         NavigationItem.Message,
         NavigationItem.Team,

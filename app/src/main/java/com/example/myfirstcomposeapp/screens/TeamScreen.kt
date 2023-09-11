@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myfirstcomposeapp.Components.NavigatePage
 import com.example.myfirstcomposeapp.Components.SearchBar
@@ -43,8 +42,8 @@ fun TeamScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun TeamScreenPreview() {
-    TeamScreen()
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun TeamScreenPreview() {
+//    TeamScreen()
+//}

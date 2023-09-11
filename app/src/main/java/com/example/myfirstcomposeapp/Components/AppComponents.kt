@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -26,7 +25,6 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -91,53 +89,14 @@ fun HeadingTextComponent(value: String) {
             .heightIn(),
         style = TextStyle(
             fontSize = 25.sp,
-            fontWeight = FontWeight.Bold,
-            fontStyle = FontStyle.Normal,
             fontFamily = Poppins,
+            fontWeight = FontWeight(600),
+            color = Color(0xFF1E6233),
+            letterSpacing = 0.5.sp,
         ),
         color = colorResource(id = R.color.Primary),
         textAlign = TextAlign.Start,
     )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MyTextField(labelValue: String) {
-    var textValue by remember { mutableStateOf("") }
-
-    Surface(
-        modifier = Modifier
-            .padding(5.dp)
-            .shadow(
-                elevation = 5.dp, shape = RoundedCornerShape(10.dp)
-
-            )
-    ) {
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = textValue,
-            label = { Text(text = labelValue) },
-            colors = TextFieldDefaults.textFieldColors(
-                disabledTextColor = Color.Transparent,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                disabledIndicatorColor = Color.Transparent,
-                containerColor = colorResource(id = R.color.white),
-                placeholderColor = colorResource(id = R.color.gray),
-                unfocusedLabelColor = colorResource(id = R.color.gray),
-            ),
-            keyboardOptions = KeyboardOptions.Default,
-            shape = RoundedCornerShape(10.dp),
-            /* leadingIcon = {
-                 Icon(painter = painterResource,
-                     contentDescription = "",
-                     modifier = Modifier.size(25.dp))
-             },*/
-            onValueChange = {
-                textValue = it
-            },
-        )
-    }
 }
 
 
@@ -162,15 +121,26 @@ fun PasswordTextField(labelValue: String) {
         TextField(
             modifier = Modifier.fillMaxWidth(),
             value = password,
-            label = { Text(text = labelValue) },
+            label = {
+                Text(
+                    text = labelValue,
+                    style = TextStyle(
+                        fontSize = 15.sp,
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight(300),
+                        color = Color(0xFFB3B3B6),
+                        letterSpacing = 0.3.sp,
+                    )
+                )
+            },
             colors = TextFieldDefaults.textFieldColors(
 
                 disabledTextColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
-                placeholderColor = colorResource(id = R.color.gray),
-                unfocusedLabelColor = colorResource(id = R.color.gray),
+                placeholderColor = colorResource(id = R.color.light_gray),
+                unfocusedLabelColor = colorResource(id = R.color.light_gray),
                 containerColor = colorResource(id = R.color.white)
             ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -195,7 +165,10 @@ fun PasswordTextField(labelValue: String) {
                     stringResource(id = R.string.show_password)
                 }
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(imageVector = iconImage, contentDescription = description)
+                    Icon(
+                        imageVector = iconImage, contentDescription = description,
+                        tint = colorResource(id = R.color.light_gray)
+                    )
                 }
             },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
@@ -229,7 +202,7 @@ fun ClickableTextComponent() {
     val termsAndCondition = " Privacy Policy"
     val annotatedString = buildAnnotatedString {
 
-        withStyle(style = SpanStyle(colorResource(id = R.color.gray))) {
+        withStyle(style = SpanStyle(colorResource(id = R.color.light_gray))) {
             pushStringAnnotation(tag = initialText, annotation = initialText)
             append(initialText)
         }
@@ -237,7 +210,7 @@ fun ClickableTextComponent() {
             pushStringAnnotation(tag = privacyPolicy, annotation = privacyPolicy)
             append(privacyPolicy)
         }
-        withStyle(style = SpanStyle(colorResource(id = R.color.gray))) {
+        withStyle(style = SpanStyle(colorResource(id = R.color.light_gray))) {
             pushStringAnnotation(tag = andText, annotation = andText)
             append(andText)
         }
@@ -319,7 +292,15 @@ fun ClickableThiraaTextComponent() {
     val ThiraaText = " Thiraa "
     val annotatedString = buildAnnotatedString {
         append(initialText)
-        withStyle(style = SpanStyle(colorResource(id = R.color.red))) {
+        withStyle(
+            style = SpanStyle(
+                colorResource(id = R.color.red),
+                fontSize = 18.sp,
+                fontFamily = Poppins,
+                fontWeight = FontWeight(600),
+                letterSpacing = 5.4.sp,
+            )
+        ) {
             pushStringAnnotation(tag = ThiraaText, annotation = ThiraaText)
             append(ThiraaText)
         }
@@ -390,103 +371,6 @@ fun TopBar() {
 }
 
 @Composable
-fun Rowcomponent() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(50.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Column(
-        ) {
-            OutlinedButton(
-                onClick = { /* Handle button click here */ },
-                colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = colorResource(id = R.color.Primary),
-                    contentColor = colorResource(id = R.color.white)
-                )
-            ) {
-                // Button text
-                Text(
-                    text = "Task in Progress", style = TextStyle(
-                        fontSize = 10.sp,
-                        fontFamily = Poppins,
-                        fontWeight = FontWeight(400),
-                        color = Color(0xFFFFFFFF),
-                        letterSpacing = 0.2.sp,
-                    )
-                )
-            }
-        }
-
-        Column(
-        ) {
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Row {
-
-
-                    OutlinedButton(
-                        onClick = { /* Handle button click here */ },
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            containerColor = colorResource(id = R.color.Primary),
-                            contentColor = colorResource(id = R.color.white)
-                        )
-                    ) {
-                        // Button text
-                        Text(
-                            text = "Task in Progress", style = TextStyle(
-                                fontSize = 10.sp,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight(400),
-                                color = Color(0xFFFFFFFF),
-                                letterSpacing = 0.2.sp,
-                            )
-                        )
-                    }
-                    OutlinedButton(
-                        onClick = { /* Handle button click here */ },
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            containerColor = colorResource(id = R.color.Primary),
-                            contentColor = colorResource(id = R.color.white)
-                        )
-                    ) {
-                        // Button text
-                        Text(
-                            text = "Task in Progress", style = TextStyle(
-                                fontSize = 10.sp,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight(400),
-                                color = Color(0xFFFFFFFF),
-                                letterSpacing = 0.2.sp,
-                            )
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.width(20.dp))
-                Icon(
-                    painter = painterResource(
-                        id = R.drawable.hamburger
-                    ),
-                    contentDescription = null,
-
-                    )
-            }
-        }
-    }
-}
-
-//@Preview(showBackground = true)
-//@Composable
-//fun RowcomponentPreview() {
-//    Rowcomponent()
-//}
-
-@Composable
 fun CustomRow() {
     Row(
         modifier = Modifier
@@ -542,15 +426,17 @@ fun CustomRow() {
         }
     }
 }
+
 @Composable
-fun CustomButton(text: String, backgroundColor: Color, contentColor: Color, ) {
+fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
     androidx.compose.material3.Button(
         onClick = { /* Handle button click here */ },
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor
         ), shape = RoundedCornerShape(5.dp),
-        modifier = Modifier.shadow(elevation = 5.dp)
+        modifier = Modifier
+            .shadow(elevation = 5.dp)
             .padding(0.dp)
 
     ) {

@@ -12,7 +12,7 @@ import com.example.myfirstcomposeapp.screens.TeamScreen
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = NavigationItem.Message.route) {
+    NavHost(navController = navController, startDestination = NavigationItems.LoginScreen.route) {
         composable(NavigationItem.Message.route) {
             MessageScreen()
         }
@@ -32,7 +32,7 @@ fun Navigation(navController: NavHostController) {
             MainNavigationScreen()
         }
         composable(NavigationItems.LoginScreen.route) {
-            LoginScreen()
+            LoginScreen(navController)
         }
     }
 }

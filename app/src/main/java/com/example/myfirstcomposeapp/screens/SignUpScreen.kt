@@ -11,7 +11,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,7 +27,7 @@ import com.example.myfirstcomposeapp.R
 
 @Composable
 fun SignUpScreen() {
-    val navController = rememberNavController()
+    val  navController = rememberNavController()
     Surface(color = Color.White,
         modifier = Modifier
             .fillMaxSize()
@@ -51,7 +50,7 @@ fun SignUpScreen() {
             )
             CheckBoxComponent()
             Spacer(modifier = Modifier.heightIn(40.dp))
-            ButtonComponent(label = "Sign Up", route = "")
+            ButtonComponent(label = "Sign Up", route = "", navController)
             Spacer(modifier = Modifier.heightIn(20.dp))
             DividerTextComponent()
             ClickableLoginTextComponent()

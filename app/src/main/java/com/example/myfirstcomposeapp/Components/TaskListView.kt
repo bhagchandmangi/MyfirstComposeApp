@@ -15,7 +15,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 @Composable
-fun TaskListView() {
+fun TaskListView(data: EmployeeList) {
     val context = LocalContext.current
     val dataFileString = getJsonDataFromAsset(context, "EmployeeDetailsList.json")
     val gson = Gson()

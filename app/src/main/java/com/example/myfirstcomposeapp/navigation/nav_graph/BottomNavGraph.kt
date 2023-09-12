@@ -1,17 +1,24 @@
-package com.example.myfirstcomposeapp.Components
+package com.example.myfirstcomposeapp.navigation.nav_graph
 
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
+import com.example.myfirstcomposeapp.BOTTOM_GRAPH_ROUTE
+import com.example.myfirstcomposeapp.Components.ProfileScreen
+import com.example.myfirstcomposeapp.Components.ProjectScreen
 import com.example.myfirstcomposeapp.NavigationItem
 import com.example.myfirstcomposeapp.screens.MessageScreen
 import com.example.myfirstcomposeapp.screens.SalesScreen
 import com.example.myfirstcomposeapp.screens.TeamScreen
 
-@Composable
-fun Navigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = NavigationItem.Message.route) {
+fun NavGraphBuilder.BottomNavGraph(
+    navController: NavHostController
+) {
+    navigation(
+        startDestination = NavigationItem.Message.route,
+        route = BOTTOM_GRAPH_ROUTE
+    ) {
         composable(NavigationItem.Message.route) {
             MessageScreen()
         }

@@ -136,13 +136,13 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
                                 .width(50.dp)
                                 .height(20.dp),
                             color = Color.Transparent,
-                            shape = RoundedCornerShape(topEnd = 5.dp, bottomEnd = 5.dp)
+                            shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp)
                         ) {
                             Card(
                                 colors = CardDefaults.cardColors(
                                     containerColor = colorResource(id = R.color.Primary)
                                 ),
-                                shape = RoundedCornerShape(topEnd = 5.dp, bottomEnd = 5.dp)
+                                shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp)
                             ) {
                                 Row(
                                     horizontalArrangement = Arrangement.Center,
@@ -244,6 +244,5 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
 //@Preview(showBackground = true)
 //@Composable
 //fun CustomProfileCardPreview() {
-//    data: EmployeeList
 //    CustomProfileCard(data = data)
 //}

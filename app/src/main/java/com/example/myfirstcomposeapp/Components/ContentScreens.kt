@@ -15,25 +15,6 @@ import androidx.compose.ui.unit.sp
 import com.example.myfirstcomposeapp.R
 
 @Composable
-fun MessageScreens() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Message View",
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.Primary),
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-
-@Composable
 fun ProjectScreen() {
     Column(
         modifier = Modifier
@@ -43,26 +24,6 @@ fun ProjectScreen() {
     ) {
         Text(
             text = "Project View",
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.Primary),
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-
-
-@Composable
-fun SalesScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Sales View",
             fontWeight = FontWeight.Bold,
             color = colorResource(id = R.color.Primary),
             modifier = Modifier.align(Alignment.CenterHorizontally),

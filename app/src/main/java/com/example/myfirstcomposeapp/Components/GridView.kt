@@ -1,90 +1,150 @@
-package com.example.myfirstcomposeapp.Components
+package com.example.myfirstcomposeapp.screens
 
-import android.content.Context
-import android.widget.Toast
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.ScrollableDefaults
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.myfirstcomposeapp.Models.GridModel
+import androidx.compose.ui.unit.sp
+import com.example.myfirstcomposeapp.Components.CustomProfileCard
+import com.example.myfirstcomposeapp.Components.TaskListView
+import com.example.myfirstcomposeapp.Models.EmployeeList
 import com.example.myfirstcomposeapp.R
+import com.example.myfirstcomposeapp.ui.theme.Poppins
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GridView(context: Context) {
-    lateinit var courseList: List<GridModel>
-    courseList = ArrayList<GridModel>()
-    courseList = courseList + GridModel("Android", R.drawable.person_1)
-    courseList = courseList + GridModel("JavaScript", R.drawable.person_2)
-    courseList = courseList + GridModel("Python", R.drawable.person_3)
-    courseList = courseList + GridModel("C++", R.drawable.person_4)
-    courseList = courseList + GridModel("C#", R.drawable.person_5)
-    courseList = courseList + GridModel("Java", R.drawable.person_6)
-    courseList = courseList + GridModel("Node Js", R.drawable.office_men)
+fun EmployeeDetail(data: EmployeeList) {
 
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        modifier = Modifier.padding(top = 10.dp),
-        flingBehavior = ScrollableDefaults.flingBehavior(),
-        userScrollEnabled = true,
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(color = colorResource(id = R.color.bgcolor)),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-
-        items(courseList.size) {
-            Card(
-                onClick = {
-                    Toast.makeText(
-                        context,
-                        courseList[it].languageName + " selected..",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                },
+        Spacer(modifier = Modifier.height(10.dp))
+        CustomProfileCard(data = data)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(colorResource(id = R.color.bgcolor)),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
                 modifier = Modifier
-                    .padding(8.dp)
-                    .shadow(elevation = 6.dp)
-                    .fillMaxWidth(),
+                    .padding(start = 5.dp), horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(
-                    Modifier
-                        .fillMaxSize()
-                        .padding(5.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                CustomButton(
+                    text = "Task in Progress",
+                    colorResource(id = R.color.Primary),
+                    contentColor = colorResource(
+                        id = R.color.white
+                    )
+                )
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+
+            Column {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(colorResource(id = R.color.bgcolor)),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Image(
-                        painter = painterResource(id = courseList[it].languageImg),
-                        contentDescription = "Javascript",
-                        modifier = Modifier
-                            .height(50.dp)
-                            .width(50.dp)
-                            .padding(5.dp)
-                    )
-                    Spacer(modifier = Modifier.height(9.dp))
-                    Text(
-                        text = courseList[it].languageName,
-                        modifier = Modifier.padding(4.dp),
-                        color = Color.Black
-                    )
+
+                    Column {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            CustomButton(
+                                text = "Assigned",
+                                backgroundColor = colorResource(id = R.color.Primary),
+                                contentColor = colorResource(R.color.Primary)
+                            )
+
+                            Spacer(modifier = Modifier.width(8.dp))
+
+                            CustomButton(
+                                text = "Created",
+                                backgroundColor = colorResource(id = R.color.Primary),
+                                contentColor = colorResource(R.color.white)
+                            )
+
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.pepicons_pop_menu),
+                                    contentDescription = null,
+                                    tint = Color.Black,
+                                    modifier = Modifier.size(50.dp)
+                                )
+                            }
+                        }
+                    }
                 }
             }
+
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        TaskListView(data = data)
     }
+
 }
 
+
+@Composable
+fun CustomButtons(text: String, backgroundColor: Color, contentColor: Color) {
+    androidx.compose.material3.Button(
+        onClick = { /* Handle button click here */ },
+        colors = ButtonDefaults.buttonColors(
+            containerColor = backgroundColor,
+            contentColor = contentColor
+        ), shape = RoundedCornerShape(5.dp),
+        modifier = Modifier
+            .shadow(elevation = 5.dp)
+            .padding(0.dp)
+
+    ) {
+        Text(
+            text = text,
+            style = TextStyle(
+                fontSize = 10.sp,
+                fontFamily = Poppins,
+                fontWeight = FontWeight(400),
+                color = Color(0xFFFFFFFF),
+                letterSpacing = 0.2.sp,
+            ),
+            modifier = Modifier.padding(0.dp)
+        )
+    }
+}
+//@Preview(showBackground = true)
+//@Composable
+//fun PreEmployeeDetail() {
+//    EmployeeDetail()
+//}

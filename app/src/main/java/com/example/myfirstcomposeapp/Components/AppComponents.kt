@@ -1,18 +1,12 @@
 package com.example.myfirstcomposeapp.Components
 
 import android.util.Log
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
@@ -29,8 +23,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,7 +35,6 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -348,84 +339,7 @@ fun ShadowedTextField() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = stringResource(R.string.welcome),
-                style = TextStyle(
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Normal,
-                    fontFamily = Poppins,
-                ),
-            )
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = colorResource(id = R.color.bgcolor),
-            titleContentColor = colorResource(id = R.color.Primary)
-        )
-    )
 
-}
-
-@Composable
-fun CustomRow() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(colorResource(id = R.color.bgcolor)),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Column(modifier = Modifier.padding(start = 5.dp))
-        {
-            CustomButton(
-                text = "Task in Progress",
-                colorResource(id = R.color.Primary),
-                contentColor = colorResource(R.color.white)
-            )
-
-        }
-
-        Spacer(modifier = Modifier.width(24.dp)) // Add two times more space between the first component and others
-
-        Column {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                com.example.myfirstcomposeapp.screens.CustomButton(
-                    text = "Assigned",
-                    backgroundColor = colorResource(id = R.color.Primary),
-                    contentColor = colorResource(R.color.Primary)
-                )
-
-                Spacer(modifier = Modifier.width(8.dp)) // Add spacing between buttons
-
-                com.example.myfirstcomposeapp.screens.CustomButton(
-                    text = "Created",
-                    backgroundColor = colorResource(id = R.color.Primary),
-                    contentColor = colorResource(R.color.white)
-                )
-
-                Spacer(modifier = Modifier.width(8.dp)) // Add spacing between buttons
-
-                // Third Column with hamburger icon
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.pepicons_pop_menu),
-                        contentDescription = null,
-                        tint = Color.Black,
-                        modifier = Modifier.size(50.dp)
-                    )
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
@@ -458,7 +372,7 @@ fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
 @Preview
 @Composable
 fun CustomRowPreview() {
-    CustomRow()
+
 }
 
 

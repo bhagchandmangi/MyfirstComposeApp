@@ -147,6 +147,6 @@ fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
 //@Preview(showBackground = true)
 //@Composable
 //fun EmployeeDetailsPreview() {
-//    data: EmployeeList = EmployeeList
-//    EmployeeDetails(data = data)
+//    dat: EmployeeList = EmployeeList()
+//    EmployeeDetails(data = dat)
 //}

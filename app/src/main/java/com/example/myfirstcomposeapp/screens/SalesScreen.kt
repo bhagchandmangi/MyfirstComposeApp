@@ -46,7 +46,7 @@ fun SalesScreen() {
                         .fillMaxWidth()
                         .fillMaxHeight()
                         .padding(horizontal = 10.dp)
-                    ) {
+                ) {
                     Spacer(modifier = Modifier.height(40.dp))
                     SalesTopBar()
                     Spacer(modifier = Modifier.height(20.dp))
@@ -58,7 +58,11 @@ fun SalesScreen() {
                     Spacer(modifier = Modifier.height(20.dp))
                     MyTextField(labelValue = "Status")
                     Spacer(modifier = Modifier.height(80.dp))
-                    ButtonComponent(label = "Save", route = NavigationItem.Sales.route, navHostController = navHostController)
+                    ButtonComponent(
+                        label = "Save",
+                        route = NavigationItem.Sales.route,
+                        navHostController = navHostController
+                    )
                 }
 
             }
@@ -133,6 +137,7 @@ fun SalesTopBar() {
     }
 
 }
+
 @Preview(showBackground = true)
 @Composable
 fun SalesScreenPreview() {

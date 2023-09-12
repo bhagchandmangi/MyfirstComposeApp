@@ -45,7 +45,7 @@ fun CustomTaskCard(data: EmployeeList) {
                 .padding(0.dp)
                 .fillMaxWidth()
                 .align(Alignment.Center)
-                .height(110.dp)
+                .height(70.dp)
                 .shadow(elevation = 5.dp, RoundedCornerShape(5)),
             color = Color.Transparent
         ) {
@@ -54,50 +54,50 @@ fun CustomTaskCard(data: EmployeeList) {
                 modifier = Modifier
             ) {
 
-                    Column(
-                        modifier = Modifier
-                            .padding(start = 130.dp, top = 10.dp)
-                    ) {
-                        Text(
-                            text = "Task Title",
-                            style = TextStyle(
-                                fontSize = 15.sp,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight(500),
-                                color = Color(0xFF3A3755),
-                                letterSpacing = 0.3.sp,
-                            )
+                Column(
+                    modifier = Modifier
+                        .padding(start = 80.dp, top = 2.dp)
+                ) {
+                    Text(
+                        text = "Task Title",
+                        style = TextStyle(
+                            fontSize = 12.sp,
+                            fontFamily = Poppins,
+                            fontWeight = FontWeight(500),
+                            color = Color(0xFF3A3755),
+                            letterSpacing = 0.3.sp,
                         )
-                        Text(
-                            text = "Feb 23,2023",
-                            style = TextStyle(
-                                fontSize = 8.sp,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight(400),
-                                color = Color(0xFFB90101),
-                                letterSpacing = 0.16.sp,
-                            )
+                    )
+                    Text(
+                        text = "Feb 23,2023",
+                        style = TextStyle(
+                            fontSize = 8.sp,
+                            fontFamily = Poppins,
+                            fontWeight = FontWeight(400),
+                            color = Color(0xFFB90101),
+                            letterSpacing = 0.16.sp,
                         )
-                        Text(
-                            text = "3 members",
-                            style = TextStyle(
-                                fontSize = 8.sp,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight(400),
-                                color = Color(0xFF3A3755),
-                                letterSpacing = 0.16.sp,
-                            )
+                    )
+                    Text(
+                        text = "3 members",
+                        style = TextStyle(
+                            fontSize = 8.sp,
+                            fontFamily = Poppins,
+                            fontWeight = FontWeight(400),
+                            color = Color(0xFF3A3755),
+                            letterSpacing = 0.16.sp,
                         )
+                    )
 
-                    }
+                }
             }
 
         }
         Surface(
             Modifier
-                .padding(top = 35.dp)
-                .width(90.dp)
-                .height(30.dp)
+                .padding(top = 22.dp)
+                .width(75.dp)
+                .height(18.dp)
                 .shadow(elevation = 4.dp)
                 .align(Alignment.TopEnd),
             color = Color.Transparent,
@@ -149,9 +149,9 @@ fun CustomTaskCard(data: EmployeeList) {
         }
         Surface(
             Modifier
-                .padding(end = 10.dp, bottom = 45.dp)
-                .width(80.dp)
-                .height(25.dp)
+                .padding(end = 10.dp, bottom = 25.dp)
+                .width(67.dp)
+                .height(17.dp)
                 .shadow(elevation = 4.dp)
                 .align(Alignment.BottomEnd),
             color = Color.Transparent,
@@ -188,8 +188,8 @@ fun CustomTaskCard(data: EmployeeList) {
         Surface(
             Modifier
                 .padding(top = 15.dp, bottom = 15.dp,)
-                .width(116.dp)
-                .height(152.dp)
+                .width(64.dp)
+                .height(84.dp)
                 .shadow(elevation = 5.dp, RoundedCornerShape(5)),
             color = Color.Transparent
 
@@ -232,9 +232,9 @@ fun CustomTaskCard(data: EmployeeList) {
         }
         Surface(
             Modifier
-                .padding(start = 80.dp, bottom = 40.dp)
-                .width(80.dp)
-                .height(20.dp)
+                .padding(start = 50.dp, bottom = 25.dp)
+                .width(64.dp)
+                .height(14.dp)
                 .shadow(elevation = 4.dp)
                 .align(Alignment.BottomStart),
             color = Color.Transparent,
@@ -245,7 +245,7 @@ fun CustomTaskCard(data: EmployeeList) {
                     containerColor = colorResource(id = R.color.Primary)
                 ),
                 shape = RoundedCornerShape(topEnd = 5.dp, bottomStart = 5.dp)
-                ) {
+            ) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize(),
@@ -267,4 +267,3 @@ fun CustomTaskCard(data: EmployeeList) {
         }
     }
 }
-

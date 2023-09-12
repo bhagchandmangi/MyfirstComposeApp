@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.myfirstcomposeapp.Components.MainNavigationScreen
+import com.example.myfirstcomposeapp.navigation.nav_graph.SetupNavGraph
 
 class MainActivity : ComponentActivity() {
     lateinit var navController: NavHostController
@@ -13,8 +13,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             navController = rememberNavController()
-//            Navigation(navController = navController)
-            MainNavigationScreen()
+            SetupNavGraph(navController = navController)
+
         }
     }
 }

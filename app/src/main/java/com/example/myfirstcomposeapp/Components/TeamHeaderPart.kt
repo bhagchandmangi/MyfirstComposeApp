@@ -64,7 +64,7 @@ fun TeamHeaderPart() {
         }
         Column {
             Row(
-                modifier = Modifier.padding(end = 40.dp),
+                modifier = Modifier.padding(0.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceAround
             ) {

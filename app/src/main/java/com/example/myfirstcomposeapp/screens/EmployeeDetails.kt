@@ -2,16 +2,19 @@ package com.example.myfirstcomposeapp.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -65,12 +68,11 @@ fun EmployeeDetails(data: EmployeeList) {
                     )
                 )
             }
-            Spacer(modifier = Modifier.width(16.dp))
+
 
             Column {
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
                         .background(colorResource(id = R.color.bgcolor)),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
@@ -120,34 +122,40 @@ fun EmployeeDetails(data: EmployeeList) {
 
 @Composable
 fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
-    androidx.compose.material3.Button(
+    Button(
         onClick = { /* Handle button click here */ },
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor
-        ), shape = RoundedCornerShape(5.dp),
+        ),
+        shape = RoundedCornerShape(5.dp),
         modifier = Modifier
+            .height(24.dp)
             .shadow(elevation = 5.dp)
-            .padding(0.dp)
+            .width(85.dp)
 
     ) {
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = 10.sp,
-                fontFamily = Poppins,
-                fontWeight = FontWeight(400),
-                color = Color(0xFFFFFFFF),
-                letterSpacing = 0.2.sp,
-            ),
-            modifier = Modifier.padding(0.dp)
-        )
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = text,
+                style = TextStyle(
+                    fontSize = 8.sp,
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight(400),
+                    color = colorResource(id = R.color.white),
+                    letterSpacing = 0.16.sp,
+                ),
+
+                )
+        }
     }
 }
 
 //@Preview(showBackground = true)
 //@Composable
 //fun EmployeeDetailsPreview() {
-//    dat: EmployeeList = EmployeeList()
-//    EmployeeDetails(data = dat)
+//    RowView()
 //}

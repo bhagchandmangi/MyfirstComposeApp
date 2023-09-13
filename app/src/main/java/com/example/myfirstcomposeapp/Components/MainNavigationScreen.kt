@@ -18,7 +18,6 @@ fun MainNavigationScreen() {
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
             Box(modifier = Modifier.padding(padding)) {
                 Navigation(navController = navController)
-//                MessageScreen()
             }
         },
         backgroundColor = colorResource(R.color.bgcolor) // Set background color to avoid the white flashing when you switch between screens

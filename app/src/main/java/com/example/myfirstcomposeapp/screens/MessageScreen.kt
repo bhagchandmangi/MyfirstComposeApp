@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myfirstcomposeapp.Components.MessageCardviewComponent
 import com.example.myfirstcomposeapp.Components.MessageHeaderPart
@@ -42,8 +43,8 @@ fun MessageScreen() {
 }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun MessageScreenPreview() {
-//    MessageScreen()
-//}
+@Preview(showBackground = true)
+@Composable
+fun MessageScreenPreview() {
+    MessageScreen()
+}

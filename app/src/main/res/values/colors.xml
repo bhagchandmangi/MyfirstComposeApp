@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="Primary">#1E6233</color>
-    <color name="Secondary">#FF9DCEFF</color>
+    <color name="Secondary">#FF3A3755</color>
     <color name="AccentColor">#FFC58BF2</color>
     <color name="GrayColor">#FF7B6F72</color>
     <color name="TextColor">#FF1D1617</color>
@@ -10,8 +10,8 @@
     <color name="red">#B90101</color>
     <color name="bgcolor">#F1F1F1</color>
     <color name="gray">#808080</color>
-    <color name="naviconcolor">#3A3755</color>
-    <color name="textColor">#8B8989</color>
+    <color name="naviconcolor">#FF3A3755</color>
+    <color name="textColor">#FF8B8989</color>
     <color name="dividercolor">#3A37559E</color>
     <color name="Black">#000000</color>
     <color name="light_gray">#FFB3B3B6</color>

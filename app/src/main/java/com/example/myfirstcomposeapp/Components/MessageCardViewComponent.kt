@@ -8,18 +8,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,13 +27,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.core.widgets.Helper
-import androidx.leanback.widget.Row
 import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.ui.theme.Poppins
 
@@ -45,15 +38,16 @@ import com.example.myfirstcomposeapp.ui.theme.Poppins
 fun MessageCardviewComponent() {
 
     Surface(
-        modifier = Modifier.shadow(
-            elevation = 5.dp,
-            shape = RoundedCornerShape(10.dp)
-        )
+        modifier = Modifier
+            .shadow(
+                elevation = 5.dp,
+                shape = RoundedCornerShape(10.dp)
+            )
+            .background(colorResource(id = R.color.white))
     ) {
         Card(
             modifier = Modifier
-                .background(colorResource(id = R.color.white))
-                .padding(start = 10.dp, top = 10.dp, end = 5.dp),
+                .padding(start = 10.dp, top = 10.dp, end = 10.dp, bottom = 5.dp),
         ) {
 
             Card(
@@ -90,9 +84,11 @@ fun MessageCardviewComponent() {
                 Text(
                     text = "23 min ago",
                     style = TextStyle(
-                        fontSize = 8.sp,
+                        fontSize = 9.sp,
                         fontFamily = Poppins,
-                        color = colorResource(id = R.color.Primary)
+                        fontWeight = FontWeight(500),
+                        color = colorResource(id = R.color.Primary),
+                        letterSpacing = 0.18.sp,
                     )
                 )
             }
@@ -134,9 +130,11 @@ fun ProfileContentComposable() {
             text = "Catalin John",
             fontWeight = FontWeight.Bold,
             style = TextStyle(
+                fontSize = 15.sp,
                 fontFamily = Poppins,
-                fontWeight = FontWeight.Bold,
-                fontSize = 15.sp
+                fontWeight = FontWeight(500),
+                color = colorResource(id = R.color.Secondary),
+                letterSpacing = 0.3.sp,
             )
         )
         Text(
@@ -146,7 +144,9 @@ fun ProfileContentComposable() {
             style = TextStyle(
                 fontSize = 12.sp,
                 fontFamily = Poppins,
-                color = colorResource(id = R.color.TextColor)
+                fontWeight = FontWeight(400),
+                color = colorResource(id = R.color.textColor),
+                letterSpacing = 0.24.sp,
             )
 
         )

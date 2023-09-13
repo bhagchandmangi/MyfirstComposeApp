@@ -45,6 +45,7 @@ fun EmployeeDetails(data: EmployeeList) {
     ) {
         Spacer(modifier = Modifier.height(20.dp))
         CustomProfileCard(data = data)
+        Spacer(modifier = Modifier.height(10.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()

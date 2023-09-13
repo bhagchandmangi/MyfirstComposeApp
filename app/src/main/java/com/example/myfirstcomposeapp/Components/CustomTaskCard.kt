@@ -42,7 +42,6 @@ fun CustomTaskCard(data: EmployeeList) {
     ) {
         Surface(
             Modifier
-                .padding(0.dp)
                 .fillMaxWidth()
                 .align(Alignment.Center)
                 .height(70.dp)

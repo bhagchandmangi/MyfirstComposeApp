@@ -48,7 +48,7 @@ fun MyTextField(labelValue: String) {
                         fontSize = 15.sp,
                         fontFamily = Poppins,
                         fontWeight = FontWeight(300),
-                        color = colorResource(id = R.color.Black),
+                        color = colorResource(id = R.color.textColor),
                         letterSpacing = 0.3.sp,
                     )
                 )

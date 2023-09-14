@@ -1,6 +1,8 @@
 package com.example.myfirstcomposeapp.screens
 
+import DottedProgressBar
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,10 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -39,6 +37,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -67,11 +66,6 @@ fun CreateTaskComponent() {
                     Spacer(modifier = Modifier.height(20.dp))
                     VoiceComponent()
                     Spacer(modifier = Modifier.height(20.dp))
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-//                        DashedProgressIndicator()
-                    }
                     Spacer(modifier = Modifier.height(20.dp))
                     Row(
                         modifier = Modifier.padding(horizontal = 5.dp),
@@ -83,22 +77,7 @@ fun CreateTaskComponent() {
                     }
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    Card(
-                        modifier = Modifier
-                            .height(63.dp)
-                            .padding(horizontal = 5.dp)
-                            .background(
-                                color = Color(0xFFD9D9D9),
-                                shape = RoundedCornerShape(size = 10.dp)
-                            ),
-                        elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp
-                        )
-                    ) {
-                        Box(modifier = Modifier.fillMaxWidth()) {
-
-                        }
-                    }
+                    TaskLevelComponent()
 
                 }
 
@@ -112,59 +91,46 @@ fun CreateTaskComponent() {
 @Composable
 fun CustomButtonWithIcon(text: String) {
     Surface(
-        shape = RoundedCornerShape(10.dp),
         modifier = Modifier
-            .shadow(elevation = 5.dp)
             .width(95.dp)
             .height(47.dp)
-            .background(
-                colorResource(id = R.color.bgcolor)
-            )
+            .padding(horizontal = 5.dp)
+            .clickable { },
+        color = colorResource(id = R.color.white),
+        shadowElevation = 5.dp,
+        shape = RoundedCornerShape(10.dp)
     ) {
-        Button(
-            onClick = { /* Handle button click here */ },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(id = R.color.white),
-                contentColor = Color(0xFF8B8989)
-            ),
-            shape = RoundedCornerShape(10.dp),
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
             modifier = Modifier
-                .shadow(elevation = 5.dp)
                 .width(95.dp)
                 .height(47.dp)
-
         ) {
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
+            Icon(
+                painter = painterResource(id = R.drawable.calendar_vector),
+                contentDescription = "microphone",
+                tint = colorResource(id = R.color.textColor),
                 modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.calendar_vector),
-                    contentDescription = "calendar",
-                    modifier = Modifier
-                        .width(10.dp)
-                        .height(10.dp)
+                    .width(25.dp)
+                    .height(25.dp)
+                    .clickable {
+
+                    }
+            )
+            Spacer(modifier = Modifier.width(1.dp))
+            Text(
+                text = text,
+                style = TextStyle(
+                    fontSize = 10.sp,
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight(500),
+                    color = colorResource(id = R.color.textColor),
+                    letterSpacing = 0.24.sp,
                 )
-                Box(
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = text,
-                        style = TextStyle(
-                            fontSize = 8.sp,
-                            fontFamily = Poppins,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFF8B8989),
-                            letterSpacing = 0.16.sp,
-                        ),
-
-                        )
-                }
-
-            }
+            )
         }
+
     }
 }
 
@@ -185,7 +151,7 @@ fun VoiceComponent() {
 
             Row(
                 modifier = Modifier
-                    .padding(start = 20.dp),
+                    .padding(horizontal = 20.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
@@ -196,6 +162,7 @@ fun VoiceComponent() {
                     contentDescription = "play button",
                     tint = colorResource(id = R.color.Primary)
                 )
+                DottedProgressBar()
             }
         }
         Spacer(modifier = Modifier.width(5.dp))
@@ -208,28 +175,93 @@ fun VoiceComponent() {
             shadowElevation = 5.dp,
             shape = RoundedCornerShape(10.dp)
         ) {
-            Button(
-                onClick = { /* Handle button click here */ },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(id = R.color.white),
-                    contentColor = Color(0xFF8B8989)
-                ),
-                shape = RoundedCornerShape(10.dp),
+            Icon(
+                painter = painterResource(id = R.drawable.microphone),
+                contentDescription = "microphone",
+                tint = colorResource(id = R.color.Primary),
                 modifier = Modifier
-                    .shadow(elevation = 5.dp)
-                    .width(46.dp)
-                    .height(47.dp)
+                    .padding(10.dp)
+                    .width(50.dp)
+                    .height(37.dp)
+                    .clickable {
 
+                    }
+            )
+        }
+    }
+}
+
+@Composable
+fun TaskLevelComponent() {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(63.dp),
+        shadowElevation = 5.dp,
+        shape = RoundedCornerShape(15.dp)
+
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.padding(10.dp)
+        ) {
+            Surface(
+                modifier = Modifier
+                    .width(115.dp)
+                    .height(47.dp),
+                color = colorResource(id = R.color.white),
+                shadowElevation = 5.dp,
+                shape = RoundedCornerShape(10.dp)
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.calendar_vector),
-                    contentDescription = "calendar",
-                    modifier = Modifier
-                        .width(10.dp)
-                        .height(10.dp)
-                )
+                Box(
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "Low",
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = Poppins,
+                            fontWeight = FontWeight(600),
+                            color = colorResource(id = R.color.textColor),
+                            letterSpacing = 0.3.sp,
+                        )
+                    )
+                }
 
             }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Medium",
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        fontSize = 15.sp,
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight(600),
+                        color = colorResource(id = R.color.textColor),
+                        letterSpacing = 0.3.sp,
+                    )
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "High",
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        fontSize = 15.sp,
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight(600),
+                        color = colorResource(id = R.color.textColor),
+                        letterSpacing = 0.3.sp,
+                    )
+                )
+            }
+
         }
     }
 }

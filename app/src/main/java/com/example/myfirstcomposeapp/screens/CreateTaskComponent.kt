@@ -170,32 +170,68 @@ fun CustomButtonWithIcon(text: String) {
 
 @Composable
 fun VoiceComponent() {
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 5.dp)
-            .height(47.dp),
-        color = colorResource(id = R.color.white),
-        shadowElevation = 5.dp,
-        shape = RoundedCornerShape(10.dp)
+    Row(
+        verticalAlignment = Alignment.CenterVertically
     ) {
-
-        Row(
+        Surface(
             modifier = Modifier
-                    .padding(start = 10.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .width(310.dp)
+                .padding(horizontal = 5.dp)
+                .height(47.dp),
+            color = colorResource(id = R.color.white),
+            shadowElevation = 5.dp,
+            shape = RoundedCornerShape(10.dp)
         ) {
-            Icon(
+
+            Row(
                 modifier = Modifier
-                    .width(17.dp)
-                    .height(17.dp),
-                painter = painterResource(id = R.drawable.play_vector),
-                contentDescription = "play button",
-                tint = colorResource(id = R.color.Primary)
-            )
+                    .padding(start = 20.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .width(17.dp)
+                        .height(17.dp),
+                    painter = painterResource(id = R.drawable.play_vector),
+                    contentDescription = "play button",
+                    tint = colorResource(id = R.color.Primary)
+                )
+            }
+        }
+        Spacer(modifier = Modifier.width(5.dp))
+        Surface(
+            modifier = Modifier
+                .width(60.dp)
+                .height(47.dp)
+                .padding(horizontal = 5.dp),
+            color = colorResource(id = R.color.white),
+            shadowElevation = 5.dp,
+            shape = RoundedCornerShape(10.dp)
+        ) {
+            Button(
+                onClick = { /* Handle button click here */ },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(id = R.color.white),
+                    contentColor = Color(0xFF8B8989)
+                ),
+                shape = RoundedCornerShape(10.dp),
+                modifier = Modifier
+                    .shadow(elevation = 5.dp)
+                    .width(46.dp)
+                    .height(47.dp)
+
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.calendar_vector),
+                    contentDescription = "calendar",
+                    modifier = Modifier
+                        .width(10.dp)
+                        .height(10.dp)
+                )
+
+            }
         }
     }
-
 }
 
 @Composable
@@ -275,12 +311,11 @@ fun DesTextField(labelValue: String) {
             .shadow(
                 elevation = 5.dp, shape = RoundedCornerShape(10.dp)
             )
-            .height(60.dp)
+            .height(200.dp)
     ) {
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(153.dp)
                 .background(
                     color = colorResource(id = R.color.white),
                     shape = RoundedCornerShape(size = 20.dp)

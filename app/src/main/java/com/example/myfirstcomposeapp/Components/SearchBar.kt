@@ -20,7 +20,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
@@ -37,15 +36,10 @@ fun SearchBar() {
     var textValue by remember { mutableStateOf("") }
     Surface(
         modifier = Modifier
-            .padding(0.dp)
-            .shadow(
-                elevation = 5.dp,
-                shape = RoundedCornerShape(47.dp),
-                spotColor = Color(0xFF1D1617),
-                ambientColor = Color(0xFF1D1617)
-            )
             .height(47.dp)
-            .background(colorResource(id = R.color.bgcolor))
+            .background(colorResource(id = R.color.bgcolor)),
+        shape = RoundedCornerShape(50.dp),
+        shadowElevation = 5.dp
     ) {
 
         TextField(

@@ -118,7 +118,7 @@ fun EmployeeDetail(data: EmployeeList) {
 
 
 @Composable
-fun CustomButtons(text: String, backgroundColor: Color, contentColor: Color) {
+fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
     androidx.compose.material3.Button(
         onClick = { /* Handle button click here */ },
         colors = ButtonDefaults.buttonColors(

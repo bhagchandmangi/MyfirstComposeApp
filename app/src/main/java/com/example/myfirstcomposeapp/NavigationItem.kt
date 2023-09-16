@@ -3,6 +3,7 @@ package com.example.myfirstcomposeapp
 const val ROOT_GRAPH_ROUTE = "root"
 const val AUTH_GRAPH_ROUTE = "auth"
 const val BOTTOM_GRAPH_ROUTE = "bottom_nav_graph"
+const val DETAILS = "details_screen"
 
 sealed class NavigationItem(var route: String, var icon: Int, var title: String) {
     object Message : NavigationItem("home", R.drawable.message, "Message")
@@ -16,4 +17,6 @@ sealed class NavigationItems(var route: String) {
     object MainNavigationScreen : NavigationItems("mainNavigationScreen")
     object LoginScreen : NavigationItems("login")
     object EmployeeDetails : NavigationItems("employee_details")
+    object TaskScreen : NavigationItems("task_screen")
+    object TaskCreateScreen : NavigationItems("task_create")
 }

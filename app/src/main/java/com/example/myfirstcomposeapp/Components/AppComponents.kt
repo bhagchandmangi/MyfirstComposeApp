@@ -1,11 +1,9 @@
 package com.example.myfirstcomposeapp.Components
 
 import android.util.Log
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
@@ -13,7 +11,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,10 +27,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -47,7 +42,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myfirstcomposeapp.R
@@ -315,65 +309,6 @@ fun ClickableThiraaTextComponent() {
         })
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ShadowedTextField() {
-    var text by remember { mutableStateOf("") }
-
-    Box(modifier = Modifier.run {
-        padding(16.dp)
-            .shadow(
-                elevation = 4.dp,
-                shape = RectangleShape,
-
-                )
-            .offset(2.dp, 3.dp)
-            .alpha(.5f)
-    }) {
-        TextField(value = text,
-            onValueChange = { text = it },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            label = { Text("Enter text") })
-    }
-}
-
-
-
-@Composable
-fun CustomButton(text: String, backgroundColor: Color, contentColor: Color) {
-    androidx.compose.material3.Button(
-        onClick = { /* Handle button click here */ },
-        colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
-        ), shape = RoundedCornerShape(5.dp),
-        modifier = Modifier
-            .shadow(elevation = 5.dp)
-            .padding(0.dp)
-
-    ) {
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = 10.sp,
-                fontFamily = Poppins,
-                fontWeight = FontWeight(400),
-                color = Color(0xFFFFFFFF),
-                letterSpacing = 0.2.sp,
-            ),
-            modifier = Modifier.padding(0.dp)
-        )
-    }
-}
-
-
-@Preview
-@Composable
-fun CustomRowPreview() {
-
-}
 
 
 

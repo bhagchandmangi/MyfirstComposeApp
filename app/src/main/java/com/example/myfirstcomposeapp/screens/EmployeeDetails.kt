@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.myfirstcomposeapp.Components.CustomProfileCard
 import com.example.myfirstcomposeapp.Components.RowWithButton
 import com.example.myfirstcomposeapp.Components.TaskListView
@@ -18,7 +19,7 @@ import com.example.myfirstcomposeapp.Models.EmployeeList
 import com.example.myfirstcomposeapp.R
 
 @Composable
-fun EmployeeDetails(data: EmployeeList) {
+fun EmployeeDetails(data: EmployeeList, navHostController: NavHostController) {
 
 
     Column(
@@ -31,7 +32,7 @@ fun EmployeeDetails(data: EmployeeList) {
         Spacer(modifier = Modifier.height(20.dp))
         CustomProfileCard(data = data)
         Spacer(modifier = Modifier.height(10.dp))
-        RowWithButton()
+        RowWithButton(navHostController = navHostController)
         Spacer(modifier = Modifier.height(10.dp))
         TaskListView(data = data)
     }

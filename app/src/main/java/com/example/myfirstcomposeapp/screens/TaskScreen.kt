@@ -1,5 +1,6 @@
 package com.example.myfirstcomposeapp.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,16 +26,18 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.myfirstcomposeapp.Components.RowWithButton
 import com.example.myfirstcomposeapp.Components.SearchBar
 import com.example.myfirstcomposeapp.Components.TaskListView
 import com.example.myfirstcomposeapp.Models.EmployeeList
+import com.example.myfirstcomposeapp.NavigationItems
 import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TaskScreen(data: EmployeeList) {
+fun TaskScreen(data: EmployeeList, navHostController: NavHostController) {
     Scaffold(
         content = { padding ->
             Box(modifier = Modifier.padding(padding)) {
@@ -45,11 +48,11 @@ fun TaskScreen(data: EmployeeList) {
                         .padding(horizontal = 10.dp)
                 ) {
                     Spacer(modifier = Modifier.height(40.dp))
-                    TaskHeaderPart()
+                    TaskHeaderPart(navHostController = navHostController)
                     Spacer(modifier = Modifier.height(20.dp))
                     SearchBar()
                     Spacer(modifier = Modifier.height(20.dp))
-                    RowWithButton()
+                    RowWithButton(navHostController = navHostController)
                     Spacer(modifier = Modifier.height(20.dp))
                     TaskListView(data = data)
                 }
@@ -62,7 +65,7 @@ fun TaskScreen(data: EmployeeList) {
 }
 
 @Composable
-fun TaskHeaderPart() {
+fun TaskHeaderPart(navHostController: NavHostController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -108,7 +111,8 @@ fun TaskHeaderPart() {
                 Icon(
                     painter = painterResource(id = R.drawable.carbon_add_filled),
                     contentDescription = "plus",
-                    modifier = Modifier.size(17.dp),
+                    modifier = Modifier.size(17.dp)
+                        .clickable { navHostController.navigate(NavigationItems.TaskCreateScreen.route) },
 
                     tint = colorResource(id = R.color.naviconcolor)
                 )

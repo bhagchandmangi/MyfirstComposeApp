@@ -43,7 +43,6 @@ fun TeamScreen() {
                 SearchBar()
                 Spacer(modifier = Modifier.height(10.dp))
                 NavigatePage()
-                // GridView(context = LocalContext.current)
             }
         }
 

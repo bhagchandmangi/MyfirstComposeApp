@@ -3,11 +3,14 @@ package com.example.myfirstcomposeapp.navigation.nav_graph
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.example.myfirstcomposeapp.AUTH_GRAPH_ROUTE
+import com.example.myfirstcomposeapp.Components.MainNavigationScreen
+import com.example.myfirstcomposeapp.NavigationItems
 import com.example.myfirstcomposeapp.ROOT_GRAPH_ROUTE
 
 @Composable
-fun SetupNavGraph(
+fun RootNavGraph(
     navController: NavHostController
 ) {
     NavHost(
@@ -16,6 +19,8 @@ fun SetupNavGraph(
         route = ROOT_GRAPH_ROUTE
     ) {
         AuthNavGraph(navController)
-        BottomNavGraph(navController)
+        composable(NavigationItems.MainNavigationScreen.route) {
+            MainNavigationScreen()
+        }
     }
 }

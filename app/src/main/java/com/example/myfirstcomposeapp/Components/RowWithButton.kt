@@ -26,14 +26,15 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.myfirstcomposeapp.NavigationItems
 import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 @Composable
-fun RowWithButton() {
+fun RowWithButton(navHostController: NavHostController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -46,11 +47,11 @@ fun RowWithButton() {
                 .padding(start = 5.dp), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CustomButtons(
+                navHostController = navHostController,
+                route = NavigationItems.TaskScreen.route,
                 text = "Task in Progress",
-                colorResource(id = R.color.Primary),
-                contentColor = colorResource(
-                    id = R.color.white
-                )
+                backgroundColor = colorResource(id = R.color.Primary),
+                contentColor = colorResource(id = R.color.white)
             )
         }
 
@@ -68,6 +69,8 @@ fun RowWithButton() {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                   CustomButtons(
+                            navHostController = navHostController,
+                            route = NavigationItems.TaskScreen.route,
                             text = "Assigned",
                             backgroundColor = colorResource(id = R.color.Primary),
                             contentColor = colorResource(R.color.Primary)
@@ -76,6 +79,8 @@ fun RowWithButton() {
                         Spacer(modifier = Modifier.width(8.dp))
 
                         CustomButtons(
+                            navHostController = navHostController,
+                            route = NavigationItems.TaskScreen.route,
                             text = "Created",
                             backgroundColor = colorResource(id = R.color.Primary),
                             contentColor = colorResource(R.color.white)
@@ -101,9 +106,11 @@ fun RowWithButton() {
 }
 
 @Composable
-fun CustomButtons(text: String, backgroundColor: Color, contentColor: Color) {
+fun CustomButtons(text: String, backgroundColor: Color, contentColor: Color, navHostController: NavHostController, route: String) {
     Button(
-        onClick = { /* Handle button click here */ },
+        onClick = {
+                  navHostController.navigate(route)
+        },
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor
@@ -132,10 +139,4 @@ fun CustomButtons(text: String, backgroundColor: Color, contentColor: Color) {
                 )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreRowWithButton() {
-    RowWithButton()
 }

@@ -79,7 +79,7 @@ fun NavigatePage() {
 
             navBackStackEntry.arguments?.getString("item")?.let { json ->
                 val item = Gson().fromJson(json, EmployeeList::class.java)
-                EmployeeDetails(data = item)
+                EmployeeDetails(data = item, navHostController)
 
             }
         }

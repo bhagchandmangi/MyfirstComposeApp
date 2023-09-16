@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.navigation.compose.rememberNavController
 import com.example.myfirstcomposeapp.R
+import com.example.myfirstcomposeapp.navigation.nav_graph.BottomNavGraph
 
 @Composable
 fun MainNavigationScreen() {
@@ -17,7 +18,7 @@ fun MainNavigationScreen() {
         bottomBar = { BottomNavigationBar(navController) },
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
             Box(modifier = Modifier.padding(padding)) {
-                Navigation(navController = navController)
+                BottomNavGraph(navController)
             }
         },
         backgroundColor = colorResource(R.color.bgcolor) // Set background color to avoid the white flashing when you switch between screens

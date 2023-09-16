@@ -17,6 +17,7 @@ import com.example.myfirstcomposeapp.screens.CreateTaskComponent
 import com.example.myfirstcomposeapp.screens.EmployeeDetails
 import com.example.myfirstcomposeapp.screens.MessageScreen
 import com.example.myfirstcomposeapp.screens.SalesScreen
+import com.example.myfirstcomposeapp.screens.TaskScreen
 import com.example.myfirstcomposeapp.screens.TeamScreen
 import com.google.gson.Gson
 
@@ -66,7 +67,7 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
 
             }
         }
-        composable("task_screen/{item}",
+        composable(NavigationItems.EmployeeDetails.route,
             arguments = listOf(
                 navArgument("item") {
                     type = NavType.StringType
@@ -82,6 +83,16 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
         }
         composable(NavigationItems.TaskCreateScreen.route) {
             CreateTaskComponent()
+        }
+        composable(NavigationItems.TaskScreen.route, arguments = listOf(
+            navArgument("item") {
+                type = NavType.StringType
+            }
+        )) { navBackStackEntry ->
+            navBackStackEntry.arguments?.getString("item")?.let { json ->
+                val item = Gson().fromJson(json, EmployeeList::class.java)
+                TaskScreen(data = item)
+            }
         }
     }
 }

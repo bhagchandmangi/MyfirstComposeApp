@@ -13,10 +13,10 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
     object MyPage : NavigationItem("profile", R.drawable.profile, "My Page")
 }
 
-sealed class NavigationItems(var route: String) {
+sealed class NavigationItems(val route: String) {
     object MainNavigationScreen : NavigationItems("mainNavigationScreen")
     object LoginScreen : NavigationItems("login")
-    object EmployeeDetails : NavigationItems("employee_details")
-    object TaskScreen : NavigationItems("task_screen")
+    object EmployeeDetails : NavigationItems("employee_details/{item")
+    object TaskScreen : NavigationItems("task_screen/{item}")
     object TaskCreateScreen : NavigationItems("task_create")
 }

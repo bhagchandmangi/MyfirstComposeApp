@@ -1,7 +1,6 @@
 package com.example.myfirstcomposeapp.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,13 +28,16 @@ import com.example.myfirstcomposeapp.R
 @Composable
 fun LoginScreen(navController: NavHostController) {
 
-    Surface (color = colorResource(id = R.color.bgcolor),
+    Surface(
+        color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
-            .padding(28.dp)){
-        Column(modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+            .padding(20.dp)
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Spacer(modifier = Modifier.height(20.dp))
             Image(
                 painter = painterResource(R.drawable.thiraa_logo1),
@@ -48,17 +50,22 @@ fun LoginScreen(navController: NavHostController) {
             Spacer(modifier = Modifier.height(20.dp))
             HeadingTextComponent(value = stringResource(id = R.string.sign_in))
 
-                MyTextField(labelValue = stringResource(id = R.string.username))
+            MyTextField(labelValue = stringResource(id = R.string.username))
 
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            PasswordTextField(labelValue = stringResource(id = R.string.password)
-               )
+            PasswordTextField(
+                labelValue = stringResource(id = R.string.password)
+            )
             Spacer(modifier = Modifier.height(0.dp))
             ClickableTextComponent()
             Spacer(modifier = Modifier.height(80.dp))
-            ButtonComponent(label = stringResource(id = R.string.btn_login),  route = NavigationItems.MainNavigationScreen.route, navHostController = navController)
+            ButtonComponent(
+                label = stringResource(id = R.string.btn_login),
+                route = NavigationItems.MainNavigationScreen.route,
+                navHostController = navController
+            )
 
         }
     }

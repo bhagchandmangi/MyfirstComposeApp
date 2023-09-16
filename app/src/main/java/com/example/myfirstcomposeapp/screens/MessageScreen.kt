@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.myfirstcomposeapp.Components.MessageCardviewComponent
+import com.example.myfirstcomposeapp.Components.MessageCardListView
 import com.example.myfirstcomposeapp.Components.MessageHeaderPart
 import com.example.myfirstcomposeapp.Components.SearchBar
 import com.example.myfirstcomposeapp.R
@@ -33,11 +33,7 @@ fun MessageScreen() {
             Spacer(modifier = Modifier.height(20.dp))
             SearchBar()
             Spacer(modifier = Modifier.height(20.dp))
-            MessageCardviewComponent()
-            Spacer(modifier = Modifier.height(20.dp))
-            MessageCardviewComponent()
-            Spacer(modifier = Modifier.height(20.dp))
-            MessageCardviewComponent()
+            MessageCardListView()
 
         }
 }

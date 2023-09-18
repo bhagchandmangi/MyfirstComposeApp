@@ -24,7 +24,7 @@ import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.ui.theme.Poppins
 
 @Composable
-fun TeamHeaderPart() {
+fun HeaderPartOne(title: String, icon1: Int, icon2: Int, icon3: Int) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -42,7 +42,7 @@ fun TeamHeaderPart() {
 
 
                 Icon(
-                    painter = painterResource(id = R.drawable.team),
+                    painter = painterResource(id = icon1),
                     contentDescription = "Team",
                     modifier = Modifier
                         .size(17.dp)
@@ -51,7 +51,7 @@ fun TeamHeaderPart() {
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
-                    text = "Team",
+                    text = title,
                     style = TextStyle(
                         fontFamily = Poppins,
                         fontWeight = FontWeight.Bold,
@@ -69,14 +69,14 @@ fun TeamHeaderPart() {
             ) {
                 Spacer(modifier = Modifier.width(10.dp))
                 Icon(
-                    painter = painterResource(id = R.drawable.bell),
+                    painter = painterResource(id = icon2),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Icon(
-                    painter = painterResource(id = R.drawable.group),
+                    painter = painterResource(id = icon3),
                     contentDescription = "Message",
                     modifier = Modifier.size(17.dp),
                     tint = colorResource(id = R.color.naviconcolor)

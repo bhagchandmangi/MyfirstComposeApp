@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.myfirstcomposeapp.Components.HeaderPartOne
 import com.example.myfirstcomposeapp.Components.SearchBar
-import com.example.myfirstcomposeapp.Components.TeamHeaderPart
 import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.navigation.nav_graph.NavigatePage
 
@@ -38,7 +38,7 @@ fun TeamScreen() {
                 modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                TeamHeaderPart()
+                HeaderPartOne(title = "Team", icon1 = R.drawable.team, icon2 = R.drawable.bell, icon3 = R.drawable.group)
                 Spacer(modifier = Modifier.height(10.dp))
                 SearchBar()
                 Spacer(modifier = Modifier.height(10.dp))

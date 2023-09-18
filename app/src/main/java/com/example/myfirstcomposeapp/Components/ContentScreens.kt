@@ -33,22 +33,3 @@ fun ProjectScreen() {
     }
 }
 
-@Composable
-fun ProfileScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Profile View",
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.Primary),
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-

@@ -20,7 +20,7 @@ import com.example.myfirstcomposeapp.R
 import com.example.myfirstcomposeapp.navigation.nav_graph.NavigatePage
 
 @Composable
-fun TeamScreen() {
+fun ProfileScreen() {
 
     Box(
         modifier = Modifier
@@ -51,6 +51,6 @@ fun TeamScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun TeamScreenPreview() {
+fun ProfileScreenPreview() {
     TeamScreen()
 }

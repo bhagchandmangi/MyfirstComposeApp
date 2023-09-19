@@ -240,9 +240,3 @@ fun CustomProfileCard(modifier: Modifier = Modifier, data: EmployeeList) {
 
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun CustomProfileCardPreview() {
-//    CustomProfileCard(data = data)
-//}

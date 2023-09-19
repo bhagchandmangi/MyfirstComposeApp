@@ -20,12 +20,13 @@ import com.example.myfirstcomposeapp.R
 
 @Composable
 fun MessageScreen() {
-    Surface (color = colorResource(id = R.color.bgcolor),
+    Surface (
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.bgcolor))
             .padding(20.dp)){
-        Column(modifier = Modifier.fillMaxSize(),
+        Column(
+            modifier = Modifier.fillMaxSize()
+                .background(colorResource(id = R.color.bgcolor)),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Spacer(modifier = Modifier.height(20.dp))
 

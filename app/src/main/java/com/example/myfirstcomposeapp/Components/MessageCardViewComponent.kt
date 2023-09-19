@@ -33,6 +33,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myfirstcomposeapp.Models.EmployeeList
@@ -54,7 +55,7 @@ fun MessageCardListView() {
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp)
+            contentPadding = PaddingValues(0.dp)
         ) {
             items(employeeData) { data ->
 
@@ -69,7 +70,7 @@ fun MessageCardListView() {
 fun MessageCardviewComponent(data: EmployeeList) {
 
     Surface(
-        shadowElevation = 10.dp,
+        shadowElevation = 2.dp,
         shape = RoundedCornerShape(10.dp),
         color = colorResource(id = R.color.white)
     ) {
@@ -202,8 +203,9 @@ fun ProfileContentComposable(data: EmployeeList) {
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    MessageCardviewComponent()
-//}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    val data: EmployeeList = EmployeeList(1, "John", "sdhfskdds")
+    MessageCardviewComponent(data = data)
+}

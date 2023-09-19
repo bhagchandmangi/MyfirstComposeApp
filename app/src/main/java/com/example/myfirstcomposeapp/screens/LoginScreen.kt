@@ -32,10 +32,10 @@ fun LoginScreen(navController: NavHostController) {
         color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
-            .padding(20.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize()
+                .padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(20.dp))
